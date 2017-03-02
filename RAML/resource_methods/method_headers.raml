@@ -1,0 +1,88 @@
+#%RAML 1.0
+title: My API
+
+/resourceWithHeaders:
+  get:
+    headers:
+      booleanHeader: boolean # Test syntactic sugar
+      stringHeader: # Test syntactic sugar, no type = string
+      numberHeader: number
+      integerHeader: integer
+      dateOnlyHeader: date-only
+      timeOnlyHeader: time-only
+      datetimeHeader: datetime
+      dateTimeOnlyHeader: datetime-only
+      fileHeader: file # File parameters https://github.com/raml-org/raml-java-parser/issues/239
+
+/resourceWithArrayHeaders:
+  get:
+    headers:
+      integerArrayHeader:
+        type: array
+        items: integer
+
+/headerWithFacets:
+  get:
+    headers:
+      stringHeaderWithFacets:
+#        Not supported
+#        displayName: my custom string header
+        description: a simple header really
+        type: string
+        example: something
+        default: stuff
+        enum: [ something, stuff, yolo ]
+        minLength: 1
+        maxLength: 10
+        pattern: ^[a-z]+$
+
+      integerHeaderWithFacets:
+        description: a simple header really
+        type: integer
+        required: false
+        example: 2
+        default: 1
+        enum: [ 2, 42, 666 ]
+        minimum: 2
+        maximum: 666
+#        Not supported
+#        multipleOf: 2
+
+      # Syntactic suigar not supported yet (ticket https://github.com/raml-org/raml-java-parser/issues/237)
+      headerWithSyntacticSugar?: string
+
+      arrayHeaderWithFacets:
+        type: array
+        description: Array description
+        default: Array default value # Overwritten by items default
+#        Not supported
+#        minItems: 0
+#        maxItems: 10
+        uniqueItems: true
+
+        items:
+          description: Items description # Overwritten by array description
+          type: boolean
+          required: false
+          examples:
+            true: true
+            false: false # Only one example supported
+          default: true
+
+/headerWithObject:
+  get:
+    headers:
+      objectHeader:
+        properties:
+          stringProperty: string
+          integerProperty: integer
+
+/headerWithArrayOfArray:
+  get:
+    headers:
+      arrayOfArrayHeader:
+        type: array
+        items:
+          # Unsupported array of array, import as string
+          type: array
+          items: string

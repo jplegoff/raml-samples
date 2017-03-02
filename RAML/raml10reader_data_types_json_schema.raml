@@ -1,0 +1,12 @@
+#%RAML 1.0
+title: API with Json schema
+
+types:
+  Contact: !include schemas/schema-contact.json
+  ObjectWithComposite: !include schemas/schema-objectWithCompositeAndReference.json
+  ObjectWithArray: !include schemas/schema-objectWithArray.json
+
+  ContactInlineSchema: '{"type":"object","properties":{"id":{"description":"The contact''s id","type":"integer"},"firstName":{"description":"The contact''s first name","type":"string","minLength":2,"maxLength":10,"pattern":"^\\w{2,}$"},"lastName":{"description":"The contact''s last name","type":"string"},"birthday":{"description":"The contact''s birth date in epoch","type":"integer"},"active":{"description":"The contact''s status (active or not)","type":"boolean"}},"required":["id","firstName","lastName","birthday","active"]}'
+
+#  Parser retrieves the whole schema and not just the fragment (ticket: https://github.com/raml-org/raml-java-parser/issues/232)
+#  InnerElementReference: !include schemas/schema-objectWithComposite.json#simpleComposite

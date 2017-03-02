@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "ObjectWithArray",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "arrayWithOneElement": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "example": "John"
+        }
+      ]
+    },
+    "arrayWithSeveralElements": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string",
+          "example": "John"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "example": "Toto"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

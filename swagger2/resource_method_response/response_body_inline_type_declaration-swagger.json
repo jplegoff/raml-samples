@@ -1,0 +1,75 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "My API",
+    "contact" : { }
+  },
+  "paths" : {
+    "/basic" : {
+      "get" : {
+        "summary" : "get",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/anonymousRepresentation"
+            },
+            "examples" : {
+              "application/json" : "{\"integerProperty\":1,\"stringProperty\":\"toto\"}"
+            }
+          },
+          "201" : {
+            "description" : "Status 201",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/anonymousRepresentation2"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "anonymousRepresentation2" : {
+      "type" : "object",
+      "required" : [ "integerProperty", "objectProperty" ],
+      "properties" : {
+        "integerProperty" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "objectProperty" : {
+          "type" : "object",
+          "properties" : {
+            "stringSubProperty" : {
+              "type" : "string",
+              "example" : "inner property"
+            }
+          },
+          "required" : [ "stringSubProperty" ]
+        }
+      }
+    },
+    "anonymousRepresentation" : {
+      "type" : "object",
+      "required" : [ "integerProperty", "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string",
+          "example" : "toto"
+        },
+        "integerProperty" : {
+          "type" : "integer",
+          "format" : "int64",
+          "example" : 1
+        }
+      },
+      "description" : "Object body"
+    }
+  }
+}

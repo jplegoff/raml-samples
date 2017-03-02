@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "ObjectWithComposite",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "simpleComposite": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "John"
+        },
+        "arrayComposite": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "example": "Toto"
+              }
+            }
+          }
+        },
+        "contact": {
+          "$ref": "#/schemas/Contact"
+        }
+      }
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

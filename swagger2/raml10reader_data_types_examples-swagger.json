@@ -1,0 +1,159 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API with Examples",
+    "contact" : { }
+  },
+  "paths" : { },
+  "definitions" : {
+    "MutlipleExampleDefinitions" : {
+      "type" : "object",
+      "required" : [ "objectProperty" ],
+      "properties" : {
+        "objectProperty" : {
+          "type" : "object",
+          "properties" : {
+            "stringProperty" : {
+              "type" : "string",
+              "example" : "bob"
+            },
+            "integerProperty" : {
+              "type" : "integer",
+              "format" : "int64",
+              "example" : 123
+            }
+          },
+          "required" : [ "integerProperty", "stringProperty" ]
+        }
+      }
+    },
+    "ExamplesInProperties" : {
+      "type" : "object",
+      "required" : [ "objectProperty" ],
+      "properties" : {
+        "objectProperty" : {
+          "type" : "object",
+          "properties" : {
+            "integerProperty" : {
+              "type" : "integer",
+              "format" : "int64",
+              "example" : 123
+            }
+          },
+          "required" : [ "integerProperty" ]
+        }
+      }
+    },
+    "ObjectExample" : {
+      "type" : "object",
+      "required" : [ "objectProperty" ],
+      "properties" : {
+        "objectProperty" : {
+          "type" : "object",
+          "properties" : {
+            "stringProperty" : {
+              "type" : "string",
+              "example" : "bob"
+            },
+            "integerProperty" : {
+              "type" : "integer",
+              "format" : "int64",
+              "example" : 123
+            }
+          },
+          "required" : [ "integerProperty", "stringProperty" ]
+        }
+      }
+    },
+    "ExampleAtPropertyLevel" : {
+      "type" : "object",
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string",
+          "example" : "toto"
+        }
+      }
+    },
+    "ExampleInComposite" : {
+      "type" : "object",
+      "required" : [ "compositeProperty" ],
+      "properties" : {
+        "compositeProperty" : {
+          "type" : "object",
+          "properties" : {
+            "stringProperty" : {
+              "type" : "string",
+              "example" : "StringExample"
+            },
+            "integerProperty" : {
+              "type" : "integer",
+              "format" : "int64",
+              "example" : 123
+            }
+          },
+          "required" : [ "integerProperty", "stringProperty" ]
+        }
+      }
+    },
+    "Examples" : {
+      "type" : "object",
+      "required" : [ "integerProperty" ],
+      "properties" : {
+        "integerProperty" : {
+          "type" : "integer",
+          "format" : "int64",
+          "example" : 123
+        }
+      }
+    },
+    "FullPrimitives" : {
+      "type" : "object",
+      "required" : [ "dateOnlyProperty", "dateTimeOnlyProperty", "dateTimeProperty", "integerProperty", "numberProperty", "timeOnlyProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string",
+          "example" : "Dido",
+          "minLength" : 1,
+          "maxLength" : 255,
+          "pattern" : "[A-Z][a-z]+"
+        },
+        "booleanProperty" : {
+          "type" : "boolean",
+          "example" : true,
+          "default" : false
+        },
+        "numberProperty" : {
+          "type" : "number",
+          "format" : "double",
+          "example" : 123.456
+        },
+        "integerProperty" : {
+          "type" : "integer",
+          "format" : "int64",
+          "example" : 123
+        },
+        "dateOnlyProperty" : {
+          "type" : "string",
+          "format" : "date",
+          "example" : "2016-12-20"
+        },
+        "timeOnlyProperty" : {
+          "type" : "string",
+          "example" : "12:31:00"
+        },
+        "dateTimeOnlyProperty" : {
+          "type" : "string",
+          "format" : "date-time",
+          "example" : "2016-12-20T21:00:00"
+        },
+        "dateTimeProperty" : {
+          "type" : "string",
+          "format" : "date-time",
+          "example" : "2016-12-20T12:31:00.090Z"
+        }
+      }
+    }
+  }
+}

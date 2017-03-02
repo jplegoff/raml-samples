@@ -1,0 +1,192 @@
+#%RAML 1.0
+title: Resources method bodies referring to a simple type
+mediaType: application/json
+
+types:
+  SimpleType:
+    properties:
+      stringProperty:
+        type: string
+
+  ArrayType:
+    type: array
+    description: array of stuff
+    items:
+      description: the stuff
+      properties:
+        stringProperty: string
+
+  ArrayTypeReference:
+    type: array
+    items: SimpleType
+
+  RedefinedIntegerType:
+    description: my custom integer
+    type: integer
+
+  RedefinedIntegerArrayType:
+    description: my custom integer array
+    type: array
+    items: integer
+
+  RedefinedIntegerArrayTypeWithSyntacticSugar:
+    description: my custom integer array
+    type: integer[]
+
+ # Partial support: an empty anonymous representation is created for the items.
+  ArrayOfArray:
+    type: array
+    items:
+      type: array
+      items: string
+
+  JsonSchema: |
+    {
+     "title": "Person Schema",
+     "type": "object",
+     "properties": {
+       "firstName": {
+         "type": "string"
+       },
+       "lastName": {
+         "type": "string"
+       },
+       "age": {
+         "description": "Age in years",
+         "type": "integer",
+         "minimum": 0
+       }
+     },
+     "required": ["firstName", "lastName"]
+    }
+
+/basic:
+  displayName: Inherit mediatype
+  put:
+    responses:
+      200:
+        body:
+          type: SimpleType
+
+/basicWithExample:
+  displayName: Specify single mediatype and example
+  put:
+    responses:
+      200:
+        body:
+          application/xml:
+            type: SimpleType
+            example:
+              stringProperty: 'hello'
+
+/multipleExample:
+  displayName: Specify single mediaType and multiple examples
+  put:
+    responses:
+      200:
+        body:
+          application/xml:
+            type: SimpleType
+            examples:
+              firstxample:
+                stringProperty: 'hello'
+              secondExample:
+                stringProperty: 'world'
+
+/multipleMediaTypesAndExamples:
+  displayName: Specify muliple mediaType and multiple examples
+  put:
+    responses:
+      200:
+        body:
+          application/json:
+            type: SimpleType
+            examples:
+              firstJsonExample:
+                stringProperty: 'hello'
+              secondJsonExample:
+                stringProperty: 'world'
+          application/xml:
+            type: SimpleType
+            examples:
+              firstXmlExample:
+                stringProperty: 'hello'
+              secondXmlExample:
+                stringProperty: 'world'
+          application/x-yaml:
+            type: SimpleType
+            examples:
+              firstYamlExample:
+                stringProperty: 'hello'
+              secondYamlExample:
+                stringProperty: 'world'
+
+/arrayType:
+  post:
+    responses:
+      200:
+        body:
+          type: ArrayType
+
+/arrayTypeReference:
+  post:
+    responses:
+      200:
+        body:
+          type: ArrayTypeReference
+
+/redefinedPrimitiveTypeReference:
+  post:
+    responses:
+      200:
+        body:
+          type: RedefinedIntegerType
+
+  put:
+    responses:
+      200:
+        body:
+          type: RedefinedIntegerArrayType
+
+/arrayOfArray:
+  post:
+    responses:
+      200:
+        body: ArrayOfArray
+
+/referencesInProperties:
+  post:
+    responses:
+      200:
+        body:
+          properties:
+            stringPropety:
+            reference: SimpleType
+
+/referenceWithArraySyntacticSugar:
+ post:
+   responses:
+     200:
+       body: SimpleType[]
+
+ put:
+   responses:
+     200:
+       body:
+         type: RedefinedIntegerType[]
+
+/inlineReferenceWithArraySyntacticSugar:
+  post:
+    responses:
+      200:
+        body:
+          properties:
+            reference: SimpleType[]
+
+/jsonSchemaReference:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            schema: JsonSchema # can also be used with 'type'

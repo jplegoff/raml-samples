@@ -1,0 +1,143 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API with Examples",
+    "contact" : { }
+  },
+  "paths" : { },
+  "definitions" : {
+    "FullPrimitiveLists" : {
+      "type" : "object",
+      "required" : [ "booleanProperty", "dateOnlyProperty", "dateTimeOnlyProperty", "dateTimeProperty", "integerProperty", "nullProperty", "numberProperty", "stringArray", "stringArrayWithSyntacticSugar", "stringProperty", "timeOnlyProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "booleanProperty" : {
+          "type" : "array",
+          "items" : {
+            "type" : "boolean"
+          }
+        },
+        "numberProperty" : {
+          "type" : "array",
+          "items" : {
+            "type" : "number",
+            "format" : "double"
+          }
+        },
+        "integerProperty" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        },
+        "dateOnlyProperty" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "format" : "date"
+          }
+        },
+        "timeOnlyProperty" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "dateTimeOnlyProperty" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        },
+        "dateTimeProperty" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        },
+        "nullProperty" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "stringArray" : {
+          "type" : "array",
+          "description" : "Array description",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "stringArrayWithSyntacticSugar" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "FullPrimitives" : {
+      "type" : "object",
+      "required" : [ "dateOnlyProperty", "dateTimeOnlyProperty", "dateTimeProperty", "integerProperty", "nullProperty", "numberProperty", "timeOnlyProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string",
+          "example" : "Tata",
+          "description" : "A description",
+          "minLength" : 1,
+          "maxLength" : 255,
+          "pattern" : "T[ao]t[ao]",
+          "default" : "Yeeeeeha !"
+        },
+        "booleanProperty" : {
+          "type" : "boolean",
+          "default" : false
+        },
+        "numberProperty" : {
+          "type" : "number",
+          "format" : "double",
+          "example" : 2.0,
+          "minimum" : 2.0,
+          "maximum" : 666.0,
+          "default" : 1.0
+        },
+        "integerProperty" : {
+          "type" : "integer",
+          "format" : "int64",
+          "example" : 2,
+          "minimum" : 2.0,
+          "maximum" : 666.0,
+          "default" : 1
+        },
+        "dateOnlyProperty" : {
+          "type" : "string",
+          "format" : "date"
+        },
+        "timeOnlyProperty" : {
+          "type" : "string"
+        },
+        "dateTimeOnlyProperty" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "dateTimeProperty" : {
+          "type" : "string",
+          "format" : "date-time"
+        },
+        "nullProperty" : {
+          "type" : "string"
+        }
+      },
+      "description" : "# Title\nMy markdown description, poseyyyy!\n"
+    }
+  }
+}

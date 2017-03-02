@@ -1,0 +1,178 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "My API",
+    "contact" : { }
+  },
+  "paths" : {
+    "/queryParameterWithArrayOfArray" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "arrayOfArrayQueryParameter",
+          "in" : "query",
+          "required" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/queryParameterWithObject" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "objectQueryParameter",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/queryParametersWithFacets" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "stringQueryParameterWithFacets",
+          "in" : "query",
+          "description" : "a simple query parameter really",
+          "required" : true,
+          "type" : "string",
+          "default" : "stuff",
+          "maxLength" : 10,
+          "minLength" : 1,
+          "pattern" : "^[a-z]+$",
+          "x-example" : "something",
+          "enum" : [ "something", "stuff", "yolo" ]
+        }, {
+          "name" : "integerQueryParameterWithFacets",
+          "in" : "query",
+          "description" : "a simple query parameter really",
+          "required" : false,
+          "type" : "integer",
+          "default" : 1,
+          "format" : "int64",
+          "x-example" : 2,
+          "enum" : [ 2, 42, 666 ]
+        }, {
+          "name" : "queryParamWithSyntacticSugar?",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "arrayQueryParameterWithProperties",
+          "in" : "query",
+          "description" : "Array description",
+          "required" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "boolean",
+            "default" : true
+          },
+          "collectionFormat" : "multi",
+          "x-example" : "true"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/resourceWithArrayQueryParameters" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "integerArrayQueryParameter",
+          "in" : "query",
+          "required" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/resourceWithQueryParameters" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "booleanQueryParameter",
+          "in" : "query",
+          "required" : true,
+          "type" : "boolean"
+        }, {
+          "name" : "stringQueryParameter",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "numberQueryParameter",
+          "in" : "query",
+          "required" : true,
+          "type" : "number",
+          "format" : "double"
+        }, {
+          "name" : "integerQueryParameter",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "dateOnlyQueryParameter",
+          "in" : "query",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "timeOnlyQueryParameter",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "datetimeQueryParameter",
+          "in" : "query",
+          "required" : true,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "dateTimeOnlyQueryParameter",
+          "in" : "query",
+          "required" : true,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "fileQueryParameter",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  }
+}

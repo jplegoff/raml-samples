@@ -1,0 +1,132 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API with Json schema",
+    "contact" : { }
+  },
+  "paths" : { },
+  "definitions" : {
+    "ObjectWithComposite" : {
+      "type" : "object",
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "simpleComposite" : {
+          "type" : "object",
+          "properties" : {
+            "name" : {
+              "type" : "string"
+            },
+            "arrayComposite" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "properties" : {
+                  "name" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            },
+            "contact" : {
+              "$ref" : "#/definitions/Contact"
+            }
+          }
+        }
+      }
+    },
+    "anonymousRepresentation" : {
+      "type" : "object"
+    },
+    "ContactInlineSchema" : {
+      "type" : "object",
+      "required" : [ "active", "birthday", "firstName", "id", "lastName" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The contact's id"
+        },
+        "firstName" : {
+          "type" : "string",
+          "description" : "The contact's first name",
+          "minLength" : 2,
+          "maxLength" : 10,
+          "pattern" : "^\\w{2,}$"
+        },
+        "lastName" : {
+          "type" : "string",
+          "description" : "The contact's last name"
+        },
+        "birthday" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The contact's birth date in epoch"
+        },
+        "active" : {
+          "type" : "boolean",
+          "description" : "The contact's status (active or not)",
+          "default" : false
+        }
+      }
+    },
+    "ObjectWithArray" : {
+      "type" : "object",
+      "required" : [ "id" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "arrayWithOneElement" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "arrayWithSeveralElements" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/anonymousRepresentation"
+          }
+        }
+      }
+    },
+    "Contact" : {
+      "type" : "object",
+      "required" : [ "active", "birthday", "firstName", "id", "lastName" ],
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The contact's id"
+        },
+        "firstName" : {
+          "type" : "string",
+          "description" : "The contact's first name",
+          "minLength" : 2,
+          "maxLength" : 10,
+          "pattern" : "^\\w{2,}$"
+        },
+        "lastName" : {
+          "type" : "string",
+          "description" : "The contact's last name"
+        },
+        "birthday" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The contact's birth date in epoch"
+        },
+        "active" : {
+          "type" : "boolean",
+          "description" : "The contact's status (active or not)",
+          "default" : false
+        }
+      }
+    }
+  }
+}

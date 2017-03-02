@@ -1,0 +1,22 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "Resources with methods and bodies",
+    "contact" : { }
+  },
+  "paths" : {
+    "/basic" : {
+      "post" : {
+        "summary" : "A display name",
+        "description" : "a description",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  }
+}

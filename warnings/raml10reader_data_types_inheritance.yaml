@@ -1,0 +1,4 @@
+---
+- field: ".types.Phone"
+  message: "Scalar type declarations are not supported."
+  type: "warning"

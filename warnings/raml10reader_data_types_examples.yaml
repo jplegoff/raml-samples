@@ -1,0 +1,4 @@
+---
+- field: ".types.ExamplesInProperties.properties.objectProperty"
+  message: "Multiple examples are not supported."
+  type: "warning"

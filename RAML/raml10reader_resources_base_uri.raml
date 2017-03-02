@@ -1,0 +1,21 @@
+#%RAML 1.0
+title: Resources with query parameters
+version: v3
+baseUri: https://{baseUriParameter}.domain.com/{version}/{myUriParam}/{listUriParam}
+baseUriParameters:
+  baseUriParameter:
+    description: A base uri parameter
+    type: string
+
+  listUriParam:
+    type: array
+    items: integer
+  # should not be allowed, (ticket https://github.com/raml-org/raml-java-parser/issues/235)
+  version:
+    type: integer
+
+  # must not be allowed (ticket https://github.com/raml-org/raml-java-parser/issues/236)
+  declaredUriParamButNotInUri: string # ignored with warning
+
+/parentResource:
+  /innerResource/{param}:

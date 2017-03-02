@@ -1,0 +1,13 @@
+---
+- field: ".types.RedefinedPrimitiveType"
+  message: "Scalar type declarations are not supported."
+  type: "warning"
+- field: ".types.RedefinedPrimitiveTypeArray"
+  message: "Scalar type declarations are not supported."
+  type: "warning"
+- field: ".types.ArrayTypesWithSyntacticSugar.properties.redefineArrayOfPrimitiveType.items"
+  message: "Arrays of arrays are not supported."
+  type: "warning"
+- field: ".types.ArrayOfArrayWithSyntacticSugar.properties.arrayOfArray.items"
+  message: "Arrays of arrays are not supported."
+  type: "warning"

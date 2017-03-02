@@ -1,0 +1,7 @@
+---
+- field: ".types.ArrayOfArrayInTypes.items"
+  message: "Arrays of arrays are not supported."
+  type: "warning"
+- field: ".types.ArrayOfArrayInProperties.properties.arrayOfArray.items"
+  message: "Arrays of arrays are not supported."
+  type: "warning"

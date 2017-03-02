@@ -1,0 +1,311 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "Resources method bodies referring to a simple type",
+    "contact" : { }
+  },
+  "paths" : {
+    "/arrayOfArray" : {
+      "post" : {
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/ArrayOfArray"
+            }
+          }
+        }
+      }
+    },
+    "/arrayType" : {
+      "post" : {
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/anonymousRepresentation"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/arrayTypeReference" : {
+      "post" : {
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/SimpleType"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/basic" : {
+      "put" : {
+        "summary" : "put",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SimpleType"
+            }
+          }
+        }
+      }
+    },
+    "/basicWithExample" : {
+      "put" : {
+        "summary" : "put",
+        "produces" : [ "application/xml" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SimpleType"
+            },
+            "examples" : {
+              "application/xml" : "<SimpleType><stringProperty>hello</stringProperty></SimpleType>"
+            }
+          }
+        }
+      }
+    },
+    "/inlineReferenceWithArraySyntacticSugar" : {
+      "post" : {
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/anonymousRepresentation3"
+            }
+          }
+        }
+      }
+    },
+    "/jsonSchemaReference" : {
+      "get" : {
+        "summary" : "get",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/JsonSchema"
+            }
+          }
+        }
+      }
+    },
+    "/multipleExample" : {
+      "put" : {
+        "summary" : "put",
+        "produces" : [ "application/xml" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SimpleType"
+            },
+            "examples" : {
+              "application/xml" : "<SimpleType><stringProperty>hello</stringProperty></SimpleType>"
+            }
+          }
+        }
+      }
+    },
+    "/multipleMediaTypesAndExamples" : {
+      "put" : {
+        "summary" : "put",
+        "produces" : [ "application/json", "application/xml", "application/x-yaml" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SimpleType"
+            },
+            "examples" : {
+              "application/json" : "{\"stringProperty\":\"hello\"}",
+              "application/xml" : "<SimpleType><stringProperty>hello</stringProperty></SimpleType>",
+              "application/x-yaml" : "---\nstringProperty: \"hello\"\n"
+            }
+          }
+        }
+      }
+    },
+    "/redefinedPrimitiveTypeReference" : {
+      "post" : {
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          }
+        }
+      },
+      "put" : {
+        "summary" : "put",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "integer",
+                "format" : "int64"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/referenceWithArraySyntacticSugar" : {
+      "post" : {
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "$ref" : "#/definitions/SimpleType"
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "summary" : "put",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "integer",
+                "format" : "int64"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/referencesInProperties" : {
+      "post" : {
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/anonymousRepresentation2"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "SimpleType" : {
+      "type" : "object",
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      }
+    },
+    "anonymousRepresentation3" : {
+      "type" : "object",
+      "required" : [ "reference" ],
+      "properties" : {
+        "reference" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SimpleType"
+          }
+        }
+      }
+    },
+    "anonymousRepresentation2" : {
+      "type" : "object",
+      "required" : [ "reference", "stringPropety" ],
+      "properties" : {
+        "stringPropety" : {
+          "type" : "string"
+        },
+        "reference" : {
+          "$ref" : "#/definitions/SimpleType"
+        }
+      }
+    },
+    "anonymousRepresentation" : {
+      "type" : "object",
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      },
+      "description" : "the stuff"
+    },
+    "JsonSchema" : {
+      "type" : "object",
+      "required" : [ "firstName", "lastName" ],
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "age" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "Age in years",
+          "minimum" : 0.0
+        }
+      }
+    },
+    "ArrayOfArray" : {
+      "type" : "object"
+    }
+  }
+}

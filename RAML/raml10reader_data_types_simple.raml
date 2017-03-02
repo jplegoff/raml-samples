@@ -1,0 +1,162 @@
+#%RAML 1.0
+title: API with Examples
+
+types:
+  File:
+    type: file
+    displayName: File display name
+#    Not supported in RWADef representations yet
+#    fileTypes:
+#    minLength:
+#    maxLength:
+
+# Dumb guy redefined builtin types duh
+  StringType:
+    type: string
+#    Not supported in RWADef representations yet (maybe in properties)
+#    pattern: "toto"
+#    minLength: 132
+#    maxLength: 456
+  BooleanType:
+    type: boolean
+  Numberype:
+    type: number
+#    Not supported in RWADef representations yet (maybe in properties)
+#    minimum: 1
+#    maximum: 2
+#    multipleOf: 1
+#    format: int64
+  IntegerType:
+    type: integer
+#    Not supported in RWADef representations yet (maybe in properties)
+#    minimum: 1
+#    maximum: 2
+#    multipleOf: 1
+#    format: int64
+  DateOnlyType:
+    type: date-only
+  TimeOnlyType:
+    type: time-only
+  DateTimeOnlyType:
+    type: datetime-only
+  DateTimeType:
+    type: datetime
+  NullType:
+    type: null
+
+# Array of primitive property
+  IntegerTypeArray:
+    type: array
+    items: integer
+
+# All the primitive types as properties
+  FullPrimitives:
+    description: |
+      # Title
+      My markdown description, poseyyyy!
+
+    properties:
+      stringProperty?: # Test non-required syntactic sugar
+        # Not mapped to rwadef
+#        displayName: A display name
+        description: A description
+        type: string
+        default: Yeeeeeha !
+        pattern: "T[ao]t[ao]"
+        minLength: 1
+        maxLength: 255
+        example: Tata
+        enum: [ Tata, Toto ]
+      booleanProperty:
+        type: boolean
+        required: false # Test non-required
+
+#     Numbers
+      numberProperty:
+        type: number
+        minimum: 2
+        maximum: 666
+        example: 2 # validated against multipleOf and enum
+        default: 1 # not validated against multipleOf, enum or minimum
+        enum: [ 2, 42, 666 ] # validated against multipleOf
+        multipleOf: 2
+      integerProperty:
+        type: integer
+        minimum: 2
+        maximum: 666
+        example: 2 # validated against multipleOf and enum
+        default: 1 # not validated against multipleOf, enum or minimum
+        enum: [ 2, 42, 666 ] # validated against multipleOf
+        multipleOf: 2
+
+#     Dates
+      dateOnlyProperty: date-only # Test syntactic sugar
+      timeOnlyProperty:
+        type: time-only
+      dateTimeOnlyProperty:
+        type: datetime-only
+      dateTimeProperty:
+        type: datetime
+      nullProperty:
+        type: null
+
+# All the primitive types as list properties
+  FullPrimitiveLists:
+    properties:
+      stringProperty:
+        type: array
+        items: string # Test syntactic sugar
+      booleanProperty:
+        type: array
+        items: boolean
+
+#     Numbers
+      numberProperty:
+        type: array
+        uniqueItems: true
+#        Unsupported
+#        minItems:
+#        minItems:
+        items: number
+      integerProperty:
+        type: array
+        items: integer
+
+#     Dates
+      dateOnlyProperty:
+        type: array
+        items: date-only
+      timeOnlyProperty:
+        type: array
+        items: time-only
+      dateTimeOnlyProperty:
+        type: array
+        items: datetime-only
+      dateTimeProperty:
+        type: array
+        items: datetime
+      nullProperty:
+        type: array
+        items: null
+
+      stringArray:
+        type: array
+#        displayName: Array display name
+        description: Array description
+        default: Array default value # overwritten by items default
+#       not supported in rwadef:
+#        maxItems: 10
+#        minItems: 0
+        uniqueItems: true
+        items:
+          type: string
+#          displayName: Property display name
+          description: Property description # Overwritten by array description
+          default: Property default
+          pattern: "T[ao]t[ao]"
+          minLength: 1
+          maxLength: 255
+          enum: [ Tata, Toto ]
+
+      stringArrayWithSyntacticSugar:
+        type: string[]

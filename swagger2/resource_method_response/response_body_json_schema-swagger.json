@@ -1,0 +1,87 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "My API",
+    "contact" : { }
+  },
+  "paths" : {
+    "/resourceWithSchema" : {
+      "post" : {
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/PostContact"
+            }
+          },
+          "201" : {
+            "description" : "Status 201",
+            "schema" : {
+              "$ref" : "#/definitions/PutContact"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "PutContact" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The contact's id"
+        },
+        "firstName" : {
+          "type" : "string",
+          "description" : "The contact's first name"
+        },
+        "lastName" : {
+          "type" : "string",
+          "description" : "The contact's last name"
+        },
+        "birthday" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The contact's birth date in epoch"
+        },
+        "active" : {
+          "type" : "boolean",
+          "description" : "The contact's status (active or not)",
+          "default" : false
+        }
+      },
+      "description" : "Complete Contact (for PUT requests)"
+    },
+    "PostContact" : {
+      "type" : "object",
+      "required" : [ "firstName", "lastName" ],
+      "properties" : {
+        "firstName" : {
+          "type" : "string",
+          "description" : "The contact's first name"
+        },
+        "lastName" : {
+          "type" : "string",
+          "description" : "The contact's last name"
+        },
+        "birthday" : {
+          "type" : "integer",
+          "format" : "int64",
+          "description" : "The contact's birth date in epoch"
+        },
+        "active" : {
+          "type" : "boolean",
+          "description" : "The contact's status (active or not)",
+          "default" : false
+        }
+      },
+      "description" : "Complete Contact (for POST requests)"
+    }
+  }
+}

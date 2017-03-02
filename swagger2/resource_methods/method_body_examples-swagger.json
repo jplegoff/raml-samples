@@ -1,0 +1,102 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API with Examples",
+    "contact" : { }
+  },
+  "paths" : {
+    "/example" : { },
+    "/example/no/value" : {
+      "post" : {
+        "summary" : "post",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/SchemaWithoutExample"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "put" : {
+        "summary" : "put",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/SchemaWithoutExample"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/example/with/value" : {
+      "post" : {
+        "summary" : "post",
+        "consumes" : [ "application/json", "application/x-yaml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/SchemaWithoutExample"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "SchemaWithPropertyValue" : {
+      "type" : "object",
+      "required" : [ "value" ],
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "SchemaWithExample" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "example" : "Bob"
+        },
+        "address" : {
+          "type" : "string"
+        }
+      }
+    },
+    "SchemaWithoutExample" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+---
+- field: ".types.RedefinedIntegerType"
+  message: "Scalar type declarations are not supported."
+  type: "warning"
+- field: ".types.RedefinedIntegerArrayType"
+  message: "Scalar type declarations are not supported."
+  type: "warning"
+- field: ".types.ArrayOfArray.items"
+  message: "Arrays of arrays are not supported."
+  type: "warning"

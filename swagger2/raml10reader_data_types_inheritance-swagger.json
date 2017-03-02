@@ -1,0 +1,145 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "My API with Types",
+    "contact" : { }
+  },
+  "paths" : { },
+  "definitions" : {
+    "AlertableAdmin" : {
+      "type" : "object",
+      "required" : [ "clearanceLevel", "firstname", "lastname", "phone", "salary" ],
+      "properties" : {
+        "firstname" : {
+          "type" : "string"
+        },
+        "lastname" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "salary" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "clearanceLevel" : {
+          "type" : "string"
+        },
+        "phone" : {
+          "type" : "string",
+          "pattern" : "[0-9|-]+"
+        }
+      }
+    },
+    "Org" : {
+      "type" : "object",
+      "required" : [ "Head", "onCall" ],
+      "properties" : {
+        "onCall" : {
+          "$ref" : "#/definitions/AlertableAdmin"
+        },
+        "Head" : {
+          "$ref" : "#/definitions/Manager"
+        }
+      }
+    },
+    "Alertable" : {
+      "type" : "object"
+    },
+    "Manager" : {
+      "type" : "object",
+      "required" : [ "firstname", "lastname", "phone", "reports", "salary" ],
+      "properties" : {
+        "firstname" : {
+          "type" : "string"
+        },
+        "lastname" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "salary" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "reports" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Person"
+          }
+        },
+        "phone" : {
+          "type" : "string",
+          "pattern" : "[0-9|-]+"
+        }
+      }
+    },
+    "Admin" : {
+      "type" : "object",
+      "required" : [ "clearanceLevel", "firstname", "lastname", "salary" ],
+      "properties" : {
+        "firstname" : {
+          "type" : "string"
+        },
+        "lastname" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "salary" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "clearanceLevel" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Person" : {
+      "type" : "object",
+      "required" : [ "firstname", "lastname", "salary" ],
+      "properties" : {
+        "firstname" : {
+          "type" : "string"
+        },
+        "lastname" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "salary" : {
+          "type" : "number",
+          "format" : "double"
+        }
+      }
+    },
+    "SuperAdmin" : {
+      "type" : "object",
+      "required" : [ "clearanceLevel", "firstname", "lastname", "salary" ],
+      "properties" : {
+        "firstname" : {
+          "type" : "string"
+        },
+        "lastname" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "salary" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "clearanceLevel" : {
+          "type" : "string"
+        }
+      },
+      "description" : "extending existing properties"
+    }
+  }
+}

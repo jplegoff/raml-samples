@@ -1,0 +1,98 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API with Examples",
+    "contact" : { }
+  },
+  "paths" : {
+    "/example" : { },
+    "/example/no/value" : {
+      "get" : {
+        "summary" : "get",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SchemaWithoutExample"
+            },
+            "examples" : {
+              "application/json" : "{\"lastname\":\"Norris\",\"name\":\"Toto\"}",
+              "application/x-yaml" : "---\nlastname: \"Norris\"\nname: \"Toto\"\n",
+              "application/xml" : "<SchemaWithoutExample><lastname>Norris</lastname><name>Toto</name></SchemaWithoutExample>",
+              "text/xml" : "<SchemaWithoutExample><lastname>Norris</lastname><name>Toto</name></SchemaWithoutExample>"
+            }
+          },
+          "218" : {
+            "description" : "Status 218",
+            "schema" : {
+              "$ref" : "#/definitions/SchemaWithoutExample"
+            },
+            "examples" : {
+              "application/json" : "{\"lastname\":\"Norris\",\"name\":\"Toto\"}",
+              "application/x-yaml" : "---\nlastname: \"Norris\"\nname: \"Toto\"\n",
+              "application/xml" : "<SchemaWithExample><lastname>Norris</lastname><name>Toto</name></SchemaWithExample>"
+            }
+          }
+        }
+      }
+    },
+    "/example/with/value" : {
+      "get" : {
+        "summary" : "get",
+        "produces" : [ "application/json", "application/x-yaml" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SchemaWithoutExample"
+            },
+            "examples" : {
+              "application/json" : "{\"lastname\":\"Norris\",\"name\":\"Toto\"}",
+              "application/x-yaml" : "---\nvalue: \"Toto\"\n"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "SchemaWithPropertyValue" : {
+      "type" : "object",
+      "required" : [ "value" ],
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      }
+    },
+    "SchemaWithExample" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "example" : "Bob"
+        },
+        "address" : {
+          "type" : "string"
+        }
+      }
+    },
+    "SchemaWithoutExample" : {
+      "type" : "object",
+      "required" : [ "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

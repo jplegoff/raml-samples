@@ -1,0 +1,210 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "Illustrate query parameter variations",
+    "contact" : { }
+  },
+  "paths" : {
+    "/array" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/arrayProperty" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "arrayProperty",
+          "in" : "query",
+          "required" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        }, {
+          "name" : "objectProperty",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/inlineExamplesRules" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "stringProperty",
+          "in" : "query",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "abc"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/inlineQueryString" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "simpleStringQueryString",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "simpleNumberQueryString",
+          "in" : "query",
+          "required" : true,
+          "type" : "number",
+          "format" : "double"
+        }, {
+          "name" : "simpleIntegerQueryString",
+          "in" : "query",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "simpleBooleanQueryString",
+          "in" : "query",
+          "required" : true,
+          "type" : "boolean"
+        }, {
+          "name" : "simpleDateOnlyQueryString",
+          "in" : "query",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "simpleTimeOnlyQueryString",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "simpleDatetimeQueryString",
+          "in" : "query",
+          "required" : true,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "simpleFileQueryString",
+          "in" : "query",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/primitiveQueryString" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/simple" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "stringProperty",
+          "in" : "query",
+          "description" : "a simple header really",
+          "required" : true,
+          "type" : "string",
+          "default" : "stuff",
+          "maxLength" : 10,
+          "minLength" : 1,
+          "pattern" : "^[a-z]+$",
+          "x-example" : "something",
+          "enum" : [ "something", "stuff", "yolo" ]
+        }, {
+          "name" : "integerProperty",
+          "in" : "query",
+          "description" : "a simple header really",
+          "required" : false,
+          "type" : "integer",
+          "default" : 1,
+          "format" : "int64",
+          "x-example" : 2,
+          "enum" : [ 2, 42, 666 ]
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "arrayAndObjectQueryString" : {
+      "type" : "object",
+      "required" : [ "arrayProperty", "objectProperty" ],
+      "properties" : {
+        "arrayProperty" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "objectProperty" : {
+          "type" : "object",
+          "properties" : {
+            "integerProperty" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          },
+          "required" : [ "integerProperty" ]
+        }
+      }
+    },
+    "simpleQueryString" : {
+      "type" : "object",
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string",
+          "example" : "something",
+          "description" : "a simple header really",
+          "minLength" : 1,
+          "maxLength" : 10,
+          "pattern" : "^[a-z]+$",
+          "default" : "stuff"
+        },
+        "integerProperty" : {
+          "type" : "integer",
+          "format" : "int64",
+          "example" : 2,
+          "description" : "a simple header really",
+          "minimum" : 2.0,
+          "maximum" : 666.0,
+          "default" : 1
+        }
+      }
+    }
+  }
+}

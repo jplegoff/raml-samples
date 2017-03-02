@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "PostContact",
+  "description": "Complete Contact (for POST requests)",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "description": "The contact's first name",
+      "type": "string"
+    },
+    "lastName": {
+      "description": "The contact's last name",
+      "type": "string"
+    },
+    "birthday": {
+      "description": "The contact's birth date in epoch",
+      "type": "integer"
+    },
+    "active": {
+      "description": "The contact's status (active or not)",
+      "type": "boolean"
+    }
+  },
+  "required": [ "firstName", "lastName" ]
+}

@@ -1,0 +1,15 @@
+#%RAML 1.0
+
+title: My api title
+version: v3
+# present in spec but not in parser (ticket: https://github.com/raml-org/raml-java-parser/issues/231)
+description: |
+  # My api desription
+
+baseUri: https://myDomain.com/api
+protocols: [ HTTP, HTTPS ]
+mediaType: application/json
+documentation:
+  - title: this is a documentation
+    content: |
+      Documentation body

@@ -1,0 +1,4 @@
+---
+- field: ".baseUriParameters.declaredUriParamButNotInUri"
+  message: "URI parameter is declared but not present in URI."
+  type: "warning"

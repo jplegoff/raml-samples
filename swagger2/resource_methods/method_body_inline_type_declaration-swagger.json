@@ -1,0 +1,110 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "My API",
+    "contact" : { }
+  },
+  "paths" : {
+    "/basic" : {
+      "post" : {
+        "summary" : "post",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/anonymousRepresentation"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "put" : {
+        "summary" : "put",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/anonymousRepresentation2"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "patch" : {
+        "summary" : "patch",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/anonymousRepresentation3"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "anonymousRepresentation3" : {
+      "type" : "object"
+    },
+    "anonymousRepresentation2" : {
+      "type" : "object",
+      "required" : [ "integerProperty", "objectProperty" ],
+      "properties" : {
+        "integerProperty" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "objectProperty" : {
+          "type" : "object",
+          "properties" : {
+            "stringSubProperty" : {
+              "type" : "string",
+              "example" : "inner property"
+            }
+          },
+          "required" : [ "stringSubProperty" ]
+        }
+      }
+    },
+    "anonymousRepresentation" : {
+      "type" : "object",
+      "required" : [ "integerProperty", "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string",
+          "example" : "toto"
+        },
+        "integerProperty" : {
+          "type" : "integer",
+          "format" : "int64",
+          "example" : 1
+        }
+      },
+      "description" : "Object body"
+    }
+  }
+}

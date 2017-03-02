@@ -1,0 +1,37 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API with security",
+    "contact" : { }
+  },
+  "paths" : { },
+  "securityDefinitions" : {
+    "passthrough_with_header" : {
+      "type" : "apiKey",
+      "name" : "headerName",
+      "in" : "header"
+    },
+    "custom_with_header" : {
+      "type" : "apiKey",
+      "name" : "SpecialToken",
+      "in" : "header"
+    },
+    "custom_with_query_param" : {
+      "type" : "apiKey",
+      "name" : "authQueryParam",
+      "in" : "query"
+    },
+    "basic_with_description" : {
+      "type" : "basic"
+    },
+    "basic_minimal" : {
+      "type" : "basic"
+    },
+    "passthrough_with_queryParam" : {
+      "type" : "apiKey",
+      "name" : "queryParamName",
+      "in" : "query"
+    }
+  }
+}

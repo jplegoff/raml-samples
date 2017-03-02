@@ -1,0 +1,29 @@
+#%RAML 1.0
+title: API with Union
+
+types:
+
+  HasHome:
+    type: object
+    properties:
+      homeAddress: string
+  Dog:
+    type: object
+    properties:
+      name: string
+      fangs: string
+  Cat:
+    type: object
+    properties:
+     name: string
+     color: string
+
+  HomeDog:
+    type: [ HasHome , Dog ]
+
+
+# Unsupported logical OR in unions, we create an empty representation
+  Pet:
+    type: Cat | Dog
+
+  HomeAnimal: [ HasHome ,  Dog | Cat ]

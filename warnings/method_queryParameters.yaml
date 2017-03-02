@@ -1,0 +1,4 @@
+---
+- field: "./queryParametersWithFacets.get"
+  message: "Multiple examples are not supported."
+  type: "warning"

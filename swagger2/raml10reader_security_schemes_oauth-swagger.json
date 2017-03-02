@@ -1,0 +1,58 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API with security",
+    "contact" : { }
+  },
+  "paths" : { },
+  "securityDefinitions" : {
+    "oauth2_with_owner_password_flow" : {
+      "type" : "oauth2",
+      "tokenUrl" : "https://api.dropbox.com/1/oauth2/token",
+      "flow" : "password",
+      "scopes" : { }
+    },
+    "oauth2_with_implicit_flow" : {
+      "type" : "oauth2",
+      "authorizationUrl" : "https://www.dropbox.com/1/oauth2/authorize",
+      "flow" : "implicit",
+      "scopes" : {
+        "scope1" : "scope1",
+        "scope2" : "scope2"
+      }
+    },
+    "oauth2_example_2" : {
+      "type" : "oauth2",
+      "authorizationUrl" : "https://www.dropbox.com/1/oauth2/authorize",
+      "flow" : "implicit",
+      "scopes" : { }
+    },
+    "oauth2_with_client_credentials_flow" : {
+      "type" : "oauth2",
+      "tokenUrl" : "https://api.dropbox.com/1/oauth2/token",
+      "flow" : "application",
+      "scopes" : {
+        "scope1" : "scope1",
+        "scope2" : "scope2"
+      }
+    },
+    "oauth2_example" : {
+      "type" : "oauth2",
+      "authorizationUrl" : "https://www.dropbox.com/1/oauth2/authorize",
+      "tokenUrl" : "https://api.dropbox.com/1/oauth2/token",
+      "flow" : "accessCode",
+      "scopes" : { }
+    },
+    "oauth2_with_authorization_code_flow" : {
+      "type" : "oauth2",
+      "authorizationUrl" : "https://www.dropbox.com/1/oauth2/authorize",
+      "tokenUrl" : "https://api.dropbox.com/1/oauth2/token",
+      "flow" : "accessCode",
+      "scopes" : {
+        "scope1" : "scope1",
+        "scope2" : "scope2"
+      }
+    }
+  }
+}

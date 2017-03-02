@@ -1,0 +1,61 @@
+#%RAML 1.0
+title: Resources method bodies with primitive types
+
+/basic:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+          # displayName not mapped to rwadef
+    #       displayName: my body
+            description: body description
+            type: string
+            example: something
+            # not supported in rwadef
+    #        default: stuff
+    #        enum: [ something, stuff, yolo ]
+    #        minLength: 1
+    #        maxLength: 10
+    #        pattern: ^[a-z]+$
+
+      201:
+        body:
+          application/json:
+            description: body description
+            type: integer
+            # not supported in rwadef
+    #        required: false
+            example: 2
+            # not supported in rwadef
+    #        default: 1
+    #        enum: [ 2, 42, 666 ]
+    #        minimum: 2
+    #        maximum: 666
+    #        multipleOf: 2
+
+      202:
+        body:
+          application/json:
+            description: my list of string
+            type: array
+    #       not supported in rwadef:
+    #        default: Array default value
+    #        maxItems: 10
+    #        minItems: 0
+    #        uniqueItems: true
+            items:
+              type: string
+              description: the string
+
+/bodyTypeConflict:
+  get:
+    responses:
+      200:
+        body:
+          application/xml:
+            type: integer
+            example: 123
+          application/x-yaml:
+            type: string
+            example: 'world'

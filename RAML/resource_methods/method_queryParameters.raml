@@ -1,0 +1,89 @@
+#%RAML 1.0
+title: My API
+
+/resourceWithQueryParameters:
+  get:
+    queryParameters:
+      booleanQueryParameter: boolean
+      stringQueryParameter: string
+      numberQueryParameter: number
+      integerQueryParameter: integer
+      dateOnlyQueryParameter: date-only
+      timeOnlyQueryParameter: time-only
+      datetimeQueryParameter: datetime
+      dateTimeOnlyQueryParameter: datetime-only
+      fileQueryParameter: file # File parameters https://github.com/raml-org/raml-java-parser/issues/239
+
+/resourceWithArrayQueryParameters:
+  get:
+    queryParameters:
+      integerArrayQueryParameter:
+        type: array
+        items: integer
+
+/queryParametersWithFacets:
+  get:
+    queryParameters:
+      stringQueryParameterWithFacets:
+#        Not supported
+#        displayname: my custom string query parameter
+        description: a simple query parameter really
+        type: string
+        example: something
+        default: stuff
+        enum: [ something, stuff, yolo ]
+        minLength: 1
+        maxLength: 10
+        pattern: ^[a-z]+$
+
+      integerQueryParameterWithFacets:
+        description: a simple query parameter really
+        type: integer
+        required: false
+        example: 2
+        default: 1
+        enum: [ 2, 42, 666 ]
+        minimum: 2
+        maximum: 666
+#        Not supported
+#        multipleOf: 2
+
+      # Syntactic suigar not supported yet (ticket https://github.com/raml-org/raml-java-parser/issues/237)
+      queryParamWithSyntacticSugar?: string
+
+      arrayQueryParameterWithProperties:
+        type: array
+        description: Array description
+        default: Array default value # Overwritten by items default
+#        Not supported
+#        minItems: 0
+#        maxItems: 10
+        uniqueItems: true
+
+        items:
+          description: Items description # Overwritten by array description
+          type: boolean
+          required: false
+          examples:
+            true: true
+            false: false # Only one example supported
+          default: true
+
+
+/queryParameterWithObject:
+  get:
+    queryParameters:
+      objectQueryParameter:
+        properties:
+          stringProperty: string
+          integerProperty: integer
+
+/queryParameterWithArrayOfArray:
+  get:
+    queryParameters:
+      arrayOfArrayQueryParameter:
+        type: array
+        items:
+          # Unsupported array of array, import as string
+          type: array
+          items: string

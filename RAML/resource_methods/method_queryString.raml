@@ -1,0 +1,95 @@
+#%RAML 1.0
+title: Illustrate query parameter variations
+types:
+  simpleQueryString:
+    properties:
+      stringProperty:
+      # displayName not mapped to rwadef
+#       displayName: my custom string header
+        description: a simple header really
+        type: string
+        example: something
+        default: stuff
+        enum: [ something, stuff, yolo ]
+        minLength: 1
+        maxLength: 10
+        pattern: ^[a-z]+$
+
+      integerProperty:
+        description: a simple header really
+        type: integer
+        required: false
+        example: 2
+        default: 1
+        enum: [ 2, 42, 666 ]
+        minimum: 2
+        maximum: 666
+#        Not supported
+#        multipleOf: 2
+
+  arrayAndObjectQueryString:
+    properties:
+      arrayProperty:
+        type: array
+        items: string
+
+      objectProperty:
+        type: object
+        properties:
+          integerProperty: integer
+
+/simple:
+  get:
+    queryString:
+      type: simpleQueryString
+      examples:
+        first:
+          value:
+            stringProperty: something
+            integerProperty: 42
+        second:
+          stringProperty: yolo
+          integerProperty: 2
+
+/arrayProperty:
+  get:
+    queryString: arrayAndObjectQueryString
+
+
+/inlineQueryString:
+  get:
+    queryString:
+      properties:
+        simpleStringQueryString: string
+        simpleNumberQueryString: number
+        simpleIntegerQueryString: integer
+        simpleBooleanQueryString: boolean
+        simpleDateOnlyQueryString: date-only
+        simpleTimeOnlyQueryString: time-only
+        simpleDatetimeQueryString: datetime
+        simpleFileQueryString: file
+
+# If an example is declared at the higher type declaration level, it takes precedence over the
+# examples declared at the lower levels.
+/inlineExamplesRules:
+  get:
+    queryString:
+      example:
+        stringProperty: abc
+      properties:
+        stringProperty:
+          type: string
+          example: def
+
+
+# ticket ...
+/primitiveQueryString:
+  get:
+    queryString: string
+
+# ticket ...
+/array:
+  get:
+    queryString:
+      type: array
+      items: simpleQueryString

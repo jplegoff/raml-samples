@@ -1,0 +1,4 @@
+---
+- field: "./primitiveFormParam.post.body.multipart/form-data"
+  message: "Ignoring form body declaration, unsupported type string"
+  type: "warning"

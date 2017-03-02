@@ -1,0 +1,81 @@
+#%RAML 1.0
+title: API with Examples
+
+types:
+  SchemaWithoutExample:
+    type: object
+    properties:
+      name: string
+      address?: string
+  SchemaWithExample:
+    type: SchemaWithoutExample
+    example:
+      name: Bob
+      lastname: Marley
+  SchemaWithPropertyValue:
+    type: object
+    properties:
+      value: string
+/example:
+  /no/value:
+    post:
+      body: # Test representation without example in a payload with one example
+        application/json:
+          type: SchemaWithoutExample
+          example:
+            name: Toto
+            lastname: Norris
+        application/x-yaml:
+          type: SchemaWithoutExample
+          example:
+            name: Toto
+            lastname: Norris
+        application/xml:
+          type: SchemaWithoutExample
+          example:
+            name: Toto
+            lastname: Norris
+        text/xml:
+          type: SchemaWithoutExample
+          example:
+            name: Toto
+            lastname: Norris
+    put:
+      body:
+        application/json: # Test representation without example in a payload with one example in examples
+          type: SchemaWithoutExample
+          examples:
+            toto:
+              name: Toto
+              lastname: Norris
+        application/x-yaml: # Test representation with example in a payload with one example in example
+          type: SchemaWithExample
+          example:
+            name: Toto
+            lastname: Norris
+        application/xml: # Test representation with example in a payload with two examples in examples
+          type: SchemaWithExample
+          examples:
+            toto:
+              name: Toto
+              lastname: Norris
+            tata:
+              name: Tata
+              lastname: Norris
+        text/xml: # Test representation with example in a payload without examples
+          type: SchemaWithExample
+  /with/value:
+    post:
+        body: # Test attribute value behavior
+          application/json:
+            type: SchemaWithoutExample
+            example:
+              value:
+                name: Toto
+                lastname: Norris
+          application/x-yaml:
+            type: SchemaWithPropertyValue
+            examples:
+              toto:
+                value:
+                  value: Toto

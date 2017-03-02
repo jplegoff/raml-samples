@@ -1,0 +1,40 @@
+#%RAML 1.0
+title: My API
+
+/basic:
+  post:
+    body:
+      application/json:
+        description: Object body
+        properties:
+          stringProperty: string
+          integerProperty:
+            type: integer
+            # Example below is not imported as an example is already defined higher in the type hierarchy
+            example: 123
+        example:
+          stringProperty: toto
+          integerProperty: 1
+
+  put:
+    body:
+      application/json:
+        type: array
+        items:
+          properties:
+            integerProperty: integer
+            objectProperty:
+              properties:
+                stringSubProperty:
+                  type: string
+                  example: "inner property"
+
+  # Array of array not supported
+  # creates an array body pointing to an empty anonymous representation
+  patch:
+    body:
+      application/json:
+        type: array
+        items:
+          type: array
+          items: string

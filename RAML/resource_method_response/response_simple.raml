@@ -1,0 +1,39 @@
+#%RAML 1.0
+title: My API
+
+/basic:
+  get:
+    responses:
+      200:
+        description: my 200 response
+        headers:
+          simpleStringHeader:
+            type: string
+            # displayName not mapped to rwadef
+#            displayName: my custom string header
+            description: a simple header really
+            required: false
+            minLength: 1
+            maxLength: 10
+            example: something
+            default: stuff
+            enum: [ something, stuff, yolo ]
+            pattern: ^[a-z]+$
+
+          simpleNumberHeader:
+            type: number
+            description: a simple header really
+            required: false
+            minimum: 2
+            maximum: 666
+            example: 2
+            default: 1
+            enum: [ 2, 42, 666 ]
+    #        Not supported
+    #        multipleOf: 2
+
+      204:
+      "201":
+
+# Invalid status code paser message cryptic: '"Unexpected key '999'. Options are : Integer"'
+# ticket https://github.com/raml-org/raml-java-parser/issues/242

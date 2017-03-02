@@ -1,0 +1,7 @@
+---
+- field: ".securitySchemes.oauth2_example"
+  message: "Oauth 2.0 scheme does not define scopes."
+  type: "warning"
+- field: ".securitySchemes.oauth2_with_owner_password_flow"
+  message: "Oauth 2.0 scheme does not define scopes."
+  type: "warning"

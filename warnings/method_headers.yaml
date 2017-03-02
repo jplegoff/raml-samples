@@ -1,0 +1,4 @@
+---
+- field: "./headerWithFacets.get.headers.arrayHeaderWithFacets"
+  message: "Multiple examples are not supported."
+  type: "warning"

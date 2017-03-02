@@ -1,0 +1,21 @@
+---
+- field: ".securitySchemes.custom_with_query_param_and_header"
+  message: "Security scheme has multiple headers and/or query parameters which is\
+    \ not supported. Information about them will be lost."
+  type: "warning"
+- field: ".securitySchemes.passthrough_with_query_param_and_header"
+  message: "Security scheme has multiple headers and/or query parameters which is\
+    \ not supported. Information about them will be lost."
+  type: "warning"
+- field: ".securitySchemes.passthrough_with_too_many_headers"
+  message: "Security scheme has multiple headers and/or query parameters which is\
+    \ not supported. Information about them will be lost."
+  type: "warning"
+- field: ".securitySchemes.passthrough_with_too_many_query_parameters"
+  message: "Security scheme has multiple headers and/or query parameters which is\
+    \ not supported. Information about them will be lost."
+  type: "warning"
+- field: ".securitySchemes.without_type"
+  message: "The type of the security scheme is not defined. Assuming it is a custom\
+    \ type."
+  type: "info"

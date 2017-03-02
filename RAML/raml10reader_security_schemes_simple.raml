@@ -1,0 +1,142 @@
+#%RAML 1.0
+title: API with security
+
+securitySchemes:
+  # BASIC
+  basic_minimal:
+    type: Basic Authentication
+
+  basic_with_description:
+    description: |
+      This API supports Basic Authentication.
+    type: Basic Authentication
+
+  # CUSTOM
+  custom_minimal:
+    type: x-custom
+
+  custom_with_description:
+    description: |
+      A custom security scheme for authenticating requests.
+    type: x-custom
+
+  custom_with_header:
+    description: |
+      My custom authentication protocol with one header
+    type: x-custom
+    describedBy:
+      headers:
+        SpecialToken:
+          # Only the name of the header is supported in RWADef
+          description: |
+            Used to send a custom token.
+          type: string
+      # not supported
+#      responses:
+#        401:
+#          description: |
+#            Bad token.
+#        403:
+
+  custom_with_query_param:
+    description: |
+      My custom authentication protocol with one query param
+    type: x-custom
+    describedBy:
+      queryParameters:
+        authQueryParam: string # Test syntactic sugar
+
+  custom_with_query_param_and_header:
+    # Only one parameter is supported in RWADef
+    description: |
+      My custom authentication protocol with headers and sh*t
+    type: x-custom
+    describedBy:
+      queryParameters:
+        authQueryParam:
+        type: string
+      headers:
+        SpecialToken:
+          type: string
+
+  # DIGEST
+  digest_minimal:
+    type: Digest Authentication
+
+  digest_with_description:
+    description: |
+      This API supports DigestSecurityScheme Authentication.
+    type: Digest Authentication
+
+  # PASS THROUGH
+  passthrough_minimal:
+    type: Pass Through
+
+  passthrough_with_description:
+    description: My pass through with description
+    type: Pass Through
+
+  passthrough_with_header:
+    description: |
+      This API supports Pass Through Authentication.
+    type: Pass Through
+    describedBy:
+      headers:
+        headerName: # Test syntactic sugar, no type = string
+
+  passthrough_with_queryParam:
+    description: |
+      This API supports Pass Through Authentication.
+    type: Pass Through
+    describedBy:
+      queryParameters:
+        queryParamName:
+
+# parser doesn't implement spec (ticket: ...)
+# Error message:
+#- message: "Unexpected key 'queryString'. Options are : \"description\" or \"displayName\"\
+#    \ or \"headers\" or \"queryParameters\" or \"responses\" or /\\((.+)\\)/"
+
+#  passthrough_queryParam_queryString:
+#    description: |
+#      This API supports Pass Through Authentication.
+#    type: Pass Through
+#    describedBy:
+#      queryString:
+#        properties:
+#          queryParamName:
+#            type: string
+
+  passthrough_with_query_param_and_header:
+    description: |
+      This API supports Pass Through Authentication.
+    type: Pass Through
+    describedBy:
+     headers:
+      api_key1: string
+     queryParameters:
+      query1: string
+
+  passthrough_with_too_many_headers:
+    description: |
+      This API supports Pass Through Authentication.
+    type: Pass Through
+    describedBy:
+      headers:
+        api_key1: string
+        api_key2: string
+
+  passthrough_with_too_many_query_parameters:
+    description: |
+      This API supports Pass Through Authentication.
+    type: Pass Through
+    describedBy:
+      queryParameters:
+        query1: string
+        query2: string
+
+  # WITHOUT TYPE
+  # The type is required, this should fail parser validation,
+  # see https://github.com/raml-org/raml-java-parser/issues/234
+  without_type:
+    description: RTFM

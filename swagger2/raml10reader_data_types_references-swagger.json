@@ -1,0 +1,151 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API with references between types",
+    "contact" : { }
+  },
+  "paths" : { },
+  "definitions" : {
+    "DirectSelfReference" : {
+      "type" : "object",
+      "required" : [ "reference" ],
+      "properties" : {
+        "reference" : {
+          "$ref" : "#/definitions/DirectSelfReference"
+        }
+      }
+    },
+    "ReferenceToArrayOfObjectInProperties" : {
+      "type" : "object",
+      "required" : [ "arrayReferenceProperty" ],
+      "properties" : {
+        "arrayReferenceProperty" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ObjectType"
+          }
+        }
+      }
+    },
+    "ReferenceArrayToRedefinedType" : {
+      "type" : "object",
+      "required" : [ "referenceArray" ],
+      "properties" : {
+        "referenceArray" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "ArrayOfArrayWithSyntacticSugar" : {
+      "type" : "object"
+    },
+    "ObjectType" : {
+      "type" : "object",
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ObjectReference" : {
+      "type" : "object",
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      }
+    },
+    "ReferenceToRedefinedType" : {
+      "type" : "object",
+      "required" : [ "ref" ],
+      "properties" : {
+        "ref" : {
+          "type" : "string",
+          "pattern" : "abc"
+        }
+      }
+    },
+    "ArrayTypesWithSyntacticSugar" : {
+      "type" : "object",
+      "required" : [ "redefinedPrimitiveType", "simpleTypeArray" ],
+      "properties" : {
+        "redefinedPrimitiveType" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "simpleTypeArray" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ObjectType"
+          }
+        }
+      }
+    },
+    "anonymousRepresentation" : {
+      "type" : "object",
+      "required" : [ "integerSubProperty" ],
+      "properties" : {
+        "integerSubProperty" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    },
+    "ReferenceToRedefinedTypeArray" : {
+      "type" : "object",
+      "required" : [ "ref" ],
+      "properties" : {
+        "ref" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "ReferenceToObjectInProperties" : {
+      "type" : "object",
+      "required" : [ "referenceProperty" ],
+      "properties" : {
+        "referenceProperty" : {
+          "$ref" : "#/definitions/ObjectType"
+        }
+      }
+    },
+    "SelfReferenceChain" : {
+      "type" : "object",
+      "required" : [ "someObject" ],
+      "properties" : {
+        "someObject" : {
+          "type" : "object",
+          "properties" : {
+            "reference" : {
+              "$ref" : "#/definitions/SelfReferenceChain"
+            }
+          },
+          "required" : [ "reference" ]
+        }
+      }
+    },
+    "ReferenceToListReferenceInProperties" : {
+      "type" : "object",
+      "required" : [ "objectListTypeReference" ],
+      "properties" : {
+        "objectListTypeReference" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/ObjectType"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+---
+- field: ".baseUri"
+  message: "Invalid base URI. Endpoint was ignored."
+  type: "warning"

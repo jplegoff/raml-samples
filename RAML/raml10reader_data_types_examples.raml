@@ -1,0 +1,115 @@
+#%RAML 1.0
+title: API with Examples
+
+types:
+
+  FullPrimitives:
+    example:
+      stringProperty: Dido
+      booleanProperty: true
+      numberProperty: 123.456
+      integerProperty: 123
+      dateOnlyProperty: 2016-12-20
+      timeOnlyProperty: 12:31:00
+      dateTimeOnlyProperty: 2016-12-20T21:00:00
+      dateTimeProperty: 2016-12-20T12:31:00.090Z
+      # null type is retrieved as string type by the parser (ticket ...)
+#      nullProperty: null => doesn't work, don't know why
+
+    properties:
+      stringProperty?: # Test non-required syntactic sugar
+        type: string
+        pattern: "[A-Z][a-z]+"
+        minLength: 1
+        maxLength: 255
+      booleanProperty:
+        type: boolean
+        required: false # Test non-required
+
+#     Numbers
+      numberProperty: number # Test syntactic sugar
+      integerProperty:
+        type: integer
+
+#     Dates
+      dateOnlyProperty:
+        type: date-only
+      timeOnlyProperty:
+        type: time-only
+      dateTimeOnlyProperty:
+        type: datetime-only
+      dateTimeProperty:
+        type: datetime
+#      Couldn't find how to create an example for that type, null doesn't work
+#      nullProperty:
+#        type: null
+#
+  ExampleAtPropertyLevel:
+    properties:
+      stringProperty:
+        type: string
+        example: toto
+
+  ExampleInComposite:
+    properties:
+      compositeProperty:
+        properties:
+          stringProperty:
+          integerProperty:
+            type: integer
+        example:
+          stringProperty: StringExample
+          integerProperty: 123
+
+  ObjectExample:
+    example:
+      objectProperty:
+        stringProperty: bob
+        integerProperty: 123
+    properties:
+      objectProperty:
+        properties:
+          stringProperty:
+          integerProperty:
+            type: integer
+
+
+  MutlipleExampleDefinitions:
+    example:
+      objectProperty:
+        stringProperty: bob
+        integerProperty: 123
+    properties:
+      objectProperty:
+        # Example below is not imported as an example is already defined higher in the type hierarchy
+        example:
+          stringProperty: bill
+          integerProperty: 456
+        properties:
+          stringProperty:
+          integerProperty:
+            type: integer
+
+  Examples:
+    examples:
+      # Only the first example is imported
+      firstExample:
+        integerProperty: 123
+      secondExample:
+        integerProperty: 456
+    properties:
+      integerProperty:
+        type: integer
+
+  ExamplesInProperties:
+    properties:
+      objectProperty:
+        properties:
+          integerProperty:
+            type: integer
+        examples:
+          # Only the first example is imported
+          firstExample:
+            integerProperty: 123
+          secondExample:
+            integerProperty: 456

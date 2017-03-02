@@ -1,0 +1,16 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "v3",
+    "title" : "My api title",
+    "contact" : { }
+  },
+  "host" : "myDomain.com",
+  "basePath" : "/api",
+  "schemes" : [ "http", "https" ],
+  "paths" : { },
+  "x-raml-documentation" : [ {
+    "title" : "this is a documentation",
+    "content" : "Documentation body\n"
+  } ]
+}

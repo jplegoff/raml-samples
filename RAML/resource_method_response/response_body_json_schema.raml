@@ -1,0 +1,13 @@
+#%RAML 1.0
+title: My API
+
+/resourceWithSchema:
+  displayName: Json schema body
+  post:
+    responses:
+      200:
+        body:
+          application/json: !include ../schemas/schema-contact-post.json
+      201:
+        body:
+          application/json: '{"$schema":"http://json-schema.org/draft-04/schema#","title":"PutContact","description":"Complete Contact (for PUT requests)","type":"object","properties":{"id":{"description":"The contact''s id","type":"integer"},"firstName":{"description":"The contact''s first name","type":"string"},"lastName":{"description":"The contact''s last name","type":"string"},"birthday":{"description":"The contact''s birth date in epoch","type":"integer"},"active":{"description":"The contact''s status (active or not)","type":"boolean"}},"minProperties":1}'

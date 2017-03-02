@@ -1,0 +1,70 @@
+#%RAML 1.0
+title: API with innner object properties
+
+types:
+  ObjectType:
+    type: object
+    properties:
+      objectProperty:
+        type: object
+        properties:
+          integerSubProperty:
+            type: integer
+
+  ImplicitObjectType: # testing syntactic sugar (no type:object)
+    properties:
+      stringProperty:
+        type: string
+
+  ThreeLevelsObjectType:
+    type: object
+    properties:
+      objectProperty:
+        type: object
+        properties:
+          stringSubProperty:
+            type: string
+          objectSubProperty:
+            type: object
+            properties:
+              stringSubProperty:
+                type: string
+
+  ObjectArrayProperty:
+    type: object
+    properties:
+      objectArray:
+        type: array
+        items:
+          type: object
+          properties:
+            integerSubProperty:
+              type: integer
+
+  # The items are imported as anonymous representation, and we keep a mapping to import bodies as array.
+  ObjectArrayType:
+    type: array
+    items:
+      type: object
+      properties:
+        integerSubProperty:
+          type: integer
+
+  # The items are imported as an empty anonymous representation.
+  ArrayOfArrayInTypes:
+    type: array
+    items:
+      type: array
+      items: string
+
+
+  ArrayOfArrayInProperties:
+    type: object
+    properties:
+      # Property is not imported as array of array is not supported
+      arrayOfArray:
+        type: array
+        items:
+          type: array
+          items: string
+      simpleString: string

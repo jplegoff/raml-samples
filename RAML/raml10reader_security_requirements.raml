@@ -1,0 +1,49 @@
+  #%RAML 1.0
+title: Resources with security requirements
+
+securedBy: [basic]
+securitySchemes:
+
+  basic:
+    description: |
+      This API supports Basic Authentication.
+    type: Basic Authentication
+
+  digest:
+    description: |
+      This API supports DigestSecurityScheme Authentication.
+    type: Digest Authentication
+
+  passthrough_queryParam:
+    description: |
+      This API supports Pass Through Authentication.
+    type: Pass Through
+    describedBy:
+      queryParameters:
+        queryParamName:
+          type: string
+
+
+/:
+  displayName: Inherit global security
+  get:
+
+  post:
+    securedBy: [ digest ]
+
+/noAuth:
+  displayName: Unauthenticated resource
+  securedBy: [null]
+
+/parentResource:
+  securedBy: [passthrough_queryParam]
+  /innerResourceWithInheritedSecurity:
+    get:
+
+    post:
+      securedBy: [ null ]
+
+/parentResourceBis:
+  securedBy: [passthrough_queryParam]
+  /innerResourceWithCustomSecurity:
+    securedBy: [basic, digest]

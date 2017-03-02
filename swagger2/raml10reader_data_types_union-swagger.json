@@ -1,0 +1,65 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API with Union",
+    "contact" : { }
+  },
+  "paths" : { },
+  "definitions" : {
+    "HasHome" : {
+      "type" : "object",
+      "required" : [ "homeAddress" ],
+      "properties" : {
+        "homeAddress" : {
+          "type" : "string"
+        }
+      }
+    },
+    "HomeDog" : {
+      "type" : "object",
+      "required" : [ "fangs", "homeAddress", "name" ],
+      "properties" : {
+        "homeAddress" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "fangs" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Cat" : {
+      "type" : "object",
+      "required" : [ "color", "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "color" : {
+          "type" : "string"
+        }
+      }
+    },
+    "HomeAnimal" : {
+      "type" : "object"
+    },
+    "Dog" : {
+      "type" : "object",
+      "required" : [ "fangs", "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "fangs" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Pet" : {
+      "type" : "object"
+    }
+  }
+}

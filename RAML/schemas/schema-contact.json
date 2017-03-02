@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Contact",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The contact's id",
+      "type": "integer"
+    },
+    "firstName": {
+      "description": "The contact's first name",
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 10,
+      "pattern": "^\\w{2,}$"
+    },
+    "lastName": {
+      "description": "The contact's last name",
+      "type": "string"
+    },
+    "birthday": {
+      "description": "The contact's birth date in epoch",
+      "type": "integer"
+    },
+    "active": {
+      "description": "The contact's status (active or not)",
+      "type": "boolean"
+    }
+  },
+  "required": [ "id", "firstName", "lastName", "birthday", "active" ]
+}

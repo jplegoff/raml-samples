@@ -1,0 +1,131 @@
+#%RAML 1.0
+title: Api with uri parameters
+version: v1.1
+
+/resourceWithUriParam/{uriParam}:
+
+/resourceWithDeclaredUriParameters/{stringUriParameter}/{integerUriParam}:
+  uriParameters:
+    stringUriParameter:
+      # Not in rwadef
+#      displayName: my custom string uriParameter
+      description: a simple uriParameter really
+      type: string
+      required: false # ignored as rwadef queryParam are required
+      example: something
+      default: stuff
+      enum: [ something, stuff, yolo ]
+      minLength: 1
+      maxLength: 10
+      pattern: ^[a-z]+$
+
+    integerUriParam:
+      description: integer uri param
+      type: integer
+      example: 2
+      default: 1
+      enum: [ 2, 42, 666 ]
+      minimum: 2
+      maximum: 666
+# not in rwadef
+#      multipleOf: 2
+
+/resourceWithTworUriParam/{uriParam1}:
+  displayName: resource with 2 uri param
+  uriParameters:
+    uriParam1:
+      description: uri param
+  # Syntactic sugar not supported yet (ticket https://github.com/raml-org/raml-java-parser/issues/237)
+#    uriParam2?: #
+#      description: uri param 2
+    # Rwadef doesn't support optional uri parameters
+
+/parentResourceWithPathVariable/{parentResourceId}:
+  uriParameters:
+    parentResourceId:
+      type: integer
+
+  /innerResourceWithPathVariable/{innerResourceId}:
+    uriParameters:
+      innerResourceId:
+        type: integer
+
+    /innerInnerResource/{urlOnlyPathVariable}:
+
+
+# Trying to override resource parameter
+# Unsupported, question will be asked (ticket https://github.com/raml-org/raml-java-parser/issues/238)
+#/parentResource/{uriParam}:
+#
+#  /childResource/{uriParam}:
+#    uriParameters:
+#      uriParam: integer
+
+
+# - Ext "reserved meaning" as an extension (stands in for mediatype)
+# is not supported in rwadef. We import is as a regular uriParam
+/resourceWithExt/{ext}:
+  uriParameters:
+    ext: integer
+
+# Question asked on how to handle undefined api version
+# https://github.com/raml-org/raml-java-parser/issues/235
+# in the meantime we import it as string uriParameter if not defined.
+
+# the version uri parameter is replaced by its value in the api.
+# NB: if the parser returns the uri for the resourceName, we leave it unresolved for the time being.
+/version/{version}:
+  /inner/{version}:
+    uriParameters:
+      version: string
+
+# Array uri parameters
+/resourceWithArrayUriParameter/{arrayUriParameter}:
+  uriParameters:
+    arrayUriParameter:
+      type: array
+      items: string
+
+# Object uri parameter
+/resourceWithObjectUriParameter/{objectUriParameter}:
+  uriParameters:
+    objectUriParameter:
+      type: object
+      properties:
+        stringProperty?:
+        integerProperty: integer
+
+# Array of object
+/resourceWithArrayOfObjectUriParameter/{objectArrayUriParameter}:
+  uriParameters:
+    objectArrayUriParameter:
+      type: array
+      items:
+        properties:
+          stringProperty?:
+          integerProperty: integer
+
+
+# Imported as string
+# question asked for parser validation (ticket https://github.com/raml-org/raml-java-parser/issues/239)
+/fileInUriParam/{file}:
+  uriParameters:
+    file: file
+
+# '/' should not be allowed but parser doesn't fail
+# question asked (ticket https://github.com/raml-org/raml-java-parser/issues/240)
+/invalidValues/{uriParam}:
+  uriParameters:
+    uriParam:
+      default: "invalid/value"
+      enum: [ "invalid/value" ]
+      example: "invalid/value"
+
+/arrayOfArrayUriParameter/{arrayOfArrayUriParameter}:
+  uriParameters:
+    arrayOfArrayUriParameter:
+      type: array
+      items:
+        # Unsupported array of array, import as string
+        type: array
+        items: string

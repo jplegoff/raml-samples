@@ -1,0 +1,131 @@
+#%RAML 1.0
+title: Api with form parameters
+
+/basic:
+  post:
+    body:
+      multipart/form-data:
+        description: Form param declaration
+        properties:
+          stringProperty: string
+          integerProperty: integer
+
+  put:
+    body:
+      application/x-www-form-urlencoded:
+        properties:
+          stringProperty:
+            type: string
+            description: my string
+            required: false
+            minLength: 1
+            maxLength: 10
+            example: something
+            default: stuff
+            enum: [ something, stuff, yolo ]
+            pattern: ^[a-z]+$
+
+          integerProperty:
+            type: integer
+            description: my integer
+            required: false
+            minimum: 2
+            maximum: 666
+            example: 2
+            default: 1
+            enum: [ 2, 42, 666 ]
+#            Not supported
+#            multipleOf: 2
+
+          fileParameter:
+            type: file
+            fileTypes: ['images/jpeg', 'image/png']
+            minLength: 1
+            maxLength: 307200
+
+  patch:
+    description: Use both form mediaTypes
+    body:
+      multipart/form-data: # Only the first body will be imported
+        description: first mediaType
+        properties:
+          stringProperty:
+          integerProperty: integer
+
+      application/x-www-form-urlencoded:
+        description: second mediaType # Not imported
+        properties:
+          stringProperty:
+          dateProperty: date-only
+
+# question asked (ticket https://github.com/raml-org/raml-java-parser/issues/243)
+/primitiveFormParam:
+  post:
+    body:
+      multipart/form-data:
+        description: primitive form param
+        type: string
+
+# Partially supported
+
+/partialSupport:
+  patch:
+    body:
+      application/x-www-form-urlencoded:
+        properties:
+          stringProperty:
+            type: array
+#           displayName: Array display name
+            description: Array description
+#           not supported in rwadef:
+#            maxItems: 10
+#            minItems: 0
+#            uniqueItems: true
+            default: array default value
+            items:
+              type: string
+              description: Property description # Overwritten by array description
+              default: Property default
+              pattern: "T[ao]t[ao]"
+              minLength: 1
+              maxLength: 255
+              example: Tata
+              enum: [ Tata, Toto ]
+          integerProperty: integer
+
+# If an example is declared at the higher type declaration level, it takes precedence over the
+# examples declared at the lower level.
+/objectExamples:
+  post:
+    body:
+      application/x-www-form-urlencoded:
+        example:
+          stringProperty: abc
+          integerProperty: 123
+        properties:
+          stringProperty:
+            type: string
+            example: def
+          integerProperty:
+            type: integer
+            example: 456
+
+# question asked (ticket https://github.com/raml-org/raml-java-parser/issues/241)
+#/unsupported:
+#  put:
+#    body:
+#      multipart/form-data:
+#        properties:
+##          objectProperty:
+##            properties:
+##              innerStringProperty: string
+#          integerProperty: integer
+#
+#  patch:
+#    body:
+#      multipart/form-data:
+#        type: array
+#        items:
+#          properties:
+#            stringProperty: string
+#            integerProperty: integer

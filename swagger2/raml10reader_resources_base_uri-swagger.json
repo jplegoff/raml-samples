@@ -1,0 +1,15 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "v3",
+    "title" : "Resources with query parameters",
+    "contact" : { }
+  },
+  "host" : "{baseUriParameter}.domain.com",
+  "basePath" : "/v3/{myUriParam}/{listUriParam}",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/parentResource" : { },
+    "/parentResource/innerResource/{param}" : { }
+  }
+}

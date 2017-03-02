@@ -1,0 +1,73 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API with Formats",
+    "contact" : { }
+  },
+  "paths" : { },
+  "definitions" : {
+    "FullNumberFormats" : {
+      "type" : "object",
+      "required" : [ "doubleNumberProperty", "floatNumberProperty", "int16IntegerProperty", "int16NumberProperty", "int32IntegerProperty", "int32NumberProperty", "int64IntegerProperty", "int64NumberProperty", "int8IntegerProperty", "int8NumberProperty", "intIntegerProperty", "intNumberProperty", "longIntegerProperty", "longNumberProperty" ],
+      "properties" : {
+        "int8IntegerProperty" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "int16IntegerProperty" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "int32IntegerProperty" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "int64IntegerProperty" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "intIntegerProperty" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "longIntegerProperty" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "int8NumberProperty" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "int16NumberProperty" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "int32NumberProperty" : {
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "int64NumberProperty" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "intNumberProperty" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "longNumberProperty" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "doubleNumberProperty" : {
+          "type" : "number",
+          "format" : "double"
+        },
+        "floatNumberProperty" : {
+          "type" : "number",
+          "format" : "float"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "Resources method bodies with primitive types",
+    "contact" : { }
+  },
+  "paths" : {
+    "/basic" : {
+      "get" : {
+        "summary" : "get",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "string"
+            },
+            "examples" : {
+              "application/json" : "\"something\""
+            }
+          },
+          "201" : {
+            "description" : "Status 201",
+            "schema" : {
+              "type" : "integer",
+              "format" : "int64"
+            },
+            "examples" : {
+              "application/json" : "2"
+            }
+          },
+          "202" : {
+            "description" : "Status 202",
+            "schema" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/bodyTypeConflict" : {
+      "get" : {
+        "summary" : "get",
+        "produces" : [ "application/xml", "application/x-yaml" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "integer",
+              "format" : "int64"
+            },
+            "examples" : {
+              "application/xml" : "<integer>123</integer>",
+              "application/x-yaml" : "--- \"world\"\n"
+            }
+          }
+        }
+      }
+    }
+  }
+}

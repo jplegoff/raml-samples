@@ -1,0 +1,318 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "Resources method bodies referring to a simple type",
+    "contact" : { }
+  },
+  "paths" : {
+    "/arrayOfArray" : {
+      "post" : {
+        "summary" : "post",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/ArrayOfArray"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/arrayType" : {
+      "post" : {
+        "summary" : "post",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/anonymousRepresentation"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/arrayTypeReference" : {
+      "post" : {
+        "summary" : "post",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/SimpleType"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/basic" : {
+      "put" : {
+        "summary" : "put",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/SimpleType"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/basicWithExample" : {
+      "put" : {
+        "summary" : "put",
+        "consumes" : [ "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/SimpleType"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/inlineReferenceWithArraySyntacticSugar" : {
+      "post" : {
+        "summary" : "post",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/anonymousRepresentation3"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/multipleExample" : {
+      "put" : {
+        "summary" : "put",
+        "consumes" : [ "application/xml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/SimpleType"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/multipleMediaTypesAndExamples" : {
+      "put" : {
+        "summary" : "put",
+        "consumes" : [ "application/json", "application/xml", "application/x-yaml" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/SimpleType"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/redefinedPrimitiveTypeReference" : {
+      "post" : {
+        "summary" : "post",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "long"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "put" : {
+        "summary" : "put",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/referenceWithArraySyntacticSugar" : {
+      "post" : {
+        "summary" : "post",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/definitions/SimpleType"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "put" : {
+        "summary" : "put",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/referencesInProperties" : {
+      "post" : {
+        "summary" : "post",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "in" : "body",
+          "name" : "body",
+          "required" : false,
+          "schema" : {
+            "$ref" : "#/definitions/anonymousRepresentation2"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "SimpleType" : {
+      "type" : "object",
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      }
+    },
+    "anonymousRepresentation3" : {
+      "type" : "object",
+      "required" : [ "reference" ],
+      "properties" : {
+        "reference" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/SimpleType"
+          }
+        }
+      }
+    },
+    "anonymousRepresentation2" : {
+      "type" : "object",
+      "required" : [ "reference", "stringPropety" ],
+      "properties" : {
+        "stringPropety" : {
+          "type" : "string"
+        },
+        "reference" : {
+          "$ref" : "#/definitions/SimpleType"
+        }
+      }
+    },
+    "anonymousRepresentation" : {
+      "type" : "object",
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      },
+      "description" : "the stuff"
+    },
+    "ArrayOfArray" : {
+      "type" : "object"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "v1",
+    "title" : "Example API",
+    "contact" : { }
+  },
+  "paths" : {
+    "/books" : {
+      "get" : {
+        "summary" : "get",
+        "description" : "Some requests require authentication.",
+        "parameters" : [ {
+          "name" : "numPages",
+          "in" : "query",
+          "description" : "The number of pages to return, not to exceed 10",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "title",
+          "in" : "query",
+          "description" : "Return books that have their title matching the given value",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "digest_all_fields",
+          "in" : "query",
+          "description" : "If no values match the value given for title, use digest_all_fields instead",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "access_token",
+          "in" : "header",
+          "description" : "Access Token",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "5757gh76"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "v1.1",
+    "title" : "Api with uri parameters",
+    "contact" : { }
+  },
+  "paths" : {
+    "/arrayOfArrayUriParameter/{arrayOfArrayUriParameter}" : { },
+    "/fileInUriParam/{file}" : { },
+    "/invalidValues/{uriParam}" : { },
+    "/parentResourceWithPathVariable/{parentResourceId}" : { },
+    "/parentResourceWithPathVariable/{parentResourceId}/innerResourceWithPathVariable/{innerResourceId}" : { },
+    "/parentResourceWithPathVariable/{parentResourceId}/innerResourceWithPathVariable/{innerResourceId}/innerInnerResource/{urlOnlyPathVariable}" : { },
+    "/resourceWithArrayOfObjectUriParameter/{objectArrayUriParameter}" : { },
+    "/resourceWithArrayUriParameter/{arrayUriParameter}" : { },
+    "/resourceWithDeclaredUriParameters/{stringUriParameter}/{integerUriParam}" : { },
+    "/resourceWithExt/{ext}" : { },
+    "/resourceWithObjectUriParameter/{objectUriParameter}" : { },
+    "/resourceWithTworUriParam/{uriParam1}" : { },
+    "/resourceWithUriParam/{uriParam}" : { },
+    "/version/v1.1" : { },
+    "/version/v1.1/inner/v1.1" : { }
+  }
+}

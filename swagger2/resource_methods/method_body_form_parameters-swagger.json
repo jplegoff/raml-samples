@@ -1,0 +1,164 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "Api with form parameters",
+    "contact" : { }
+  },
+  "paths" : {
+    "/basic" : {
+      "post" : {
+        "summary" : "post",
+        "consumes" : [ "multipart/form-data" ],
+        "parameters" : [ {
+          "name" : "stringProperty",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "integerProperty",
+          "in" : "formData",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "put" : {
+        "summary" : "put",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "stringProperty",
+          "in" : "formData",
+          "description" : "my string",
+          "required" : false,
+          "type" : "string",
+          "default" : "stuff",
+          "maxLength" : 10,
+          "minLength" : 1,
+          "pattern" : "^[a-z]+$",
+          "x-example" : "something",
+          "enum" : [ "something", "stuff", "yolo" ]
+        }, {
+          "name" : "integerProperty",
+          "in" : "formData",
+          "description" : "my integer",
+          "required" : false,
+          "type" : "integer",
+          "default" : 1,
+          "maximum" : 666.0,
+          "minimum" : 2.0,
+          "format" : "int64",
+          "x-example" : 2,
+          "enum" : [ 2, 42, 666 ]
+        }, {
+          "name" : "fileParameter",
+          "in" : "formData",
+          "required" : true,
+          "type" : "file"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "patch" : {
+        "summary" : "patch",
+        "description" : "Use both form mediaTypes",
+        "consumes" : [ "multipart/form-data", "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "stringProperty",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "integerProperty",
+          "in" : "formData",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/objectExamples" : {
+      "post" : {
+        "summary" : "post",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "stringProperty",
+          "in" : "formData",
+          "required" : true,
+          "type" : "string",
+          "x-example" : "abc"
+        }, {
+          "name" : "integerProperty",
+          "in" : "formData",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64",
+          "x-example" : 123
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/partialSupport" : {
+      "patch" : {
+        "summary" : "patch",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "name" : "stringProperty",
+          "in" : "formData",
+          "description" : "Array description",
+          "required" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "example" : "Tata",
+            "default" : "Property default"
+          },
+          "collectionFormat" : "multi",
+          "maxLength" : 255,
+          "minLength" : 1,
+          "pattern" : "T[ao]t[ao]",
+          "enum" : [ "Tata", "Toto" ]
+        }, {
+          "name" : "integerProperty",
+          "in" : "formData",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/primitiveFormParam" : {
+      "post" : {
+        "summary" : "post",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  }
+}

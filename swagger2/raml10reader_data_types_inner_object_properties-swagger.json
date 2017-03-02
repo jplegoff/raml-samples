@@ -1,0 +1,101 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "API with innner object properties",
+    "contact" : { }
+  },
+  "paths" : { },
+  "definitions" : {
+    "ObjectType" : {
+      "type" : "object",
+      "required" : [ "objectProperty" ],
+      "properties" : {
+        "objectProperty" : {
+          "type" : "object",
+          "properties" : {
+            "integerSubProperty" : {
+              "type" : "integer",
+              "format" : "int64"
+            }
+          },
+          "required" : [ "integerSubProperty" ]
+        }
+      }
+    },
+    "ThreeLevelsObjectType" : {
+      "type" : "object",
+      "required" : [ "objectProperty" ],
+      "properties" : {
+        "objectProperty" : {
+          "type" : "object",
+          "properties" : {
+            "stringSubProperty" : {
+              "type" : "string"
+            },
+            "objectSubProperty" : {
+              "type" : "object",
+              "properties" : {
+                "stringSubProperty" : {
+                  "type" : "string"
+                }
+              },
+              "required" : [ "stringSubProperty" ]
+            }
+          },
+          "required" : [ "objectSubProperty", "stringSubProperty" ]
+        }
+      }
+    },
+    "ImplicitObjectType" : {
+      "type" : "object",
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      }
+    },
+    "anonymousRepresentation" : {
+      "type" : "object",
+      "required" : [ "integerSubProperty" ],
+      "properties" : {
+        "integerSubProperty" : {
+          "type" : "integer",
+          "format" : "int64"
+        }
+      }
+    },
+    "ObjectArrayProperty" : {
+      "type" : "object",
+      "required" : [ "objectArray" ],
+      "properties" : {
+        "objectArray" : {
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "properties" : {
+              "integerSubProperty" : {
+                "type" : "integer",
+                "format" : "int64"
+              }
+            },
+            "required" : [ "integerSubProperty" ]
+          }
+        }
+      }
+    },
+    "ArrayOfArrayInTypes" : {
+      "type" : "object"
+    },
+    "ArrayOfArrayInProperties" : {
+      "type" : "object",
+      "required" : [ "simpleString" ],
+      "properties" : {
+        "simpleString" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+}

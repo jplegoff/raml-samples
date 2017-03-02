@@ -1,0 +1,178 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "My API",
+    "contact" : { }
+  },
+  "paths" : {
+    "/headerWithArrayOfArray" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "arrayOfArrayHeader",
+          "in" : "header",
+          "required" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/headerWithFacets" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "stringHeaderWithFacets",
+          "in" : "header",
+          "description" : "a simple header really",
+          "required" : true,
+          "type" : "string",
+          "default" : "stuff",
+          "maxLength" : 10,
+          "minLength" : 1,
+          "pattern" : "^[a-z]+$",
+          "x-example" : "something",
+          "enum" : [ "something", "stuff", "yolo" ]
+        }, {
+          "name" : "integerHeaderWithFacets",
+          "in" : "header",
+          "description" : "a simple header really",
+          "required" : false,
+          "type" : "integer",
+          "default" : 1,
+          "format" : "int64",
+          "x-example" : 2,
+          "enum" : [ 2, 42, 666 ]
+        }, {
+          "name" : "headerWithSyntacticSugar?",
+          "in" : "header",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "arrayHeaderWithFacets",
+          "in" : "header",
+          "description" : "Array description",
+          "required" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "boolean",
+            "default" : true
+          },
+          "collectionFormat" : "multi",
+          "x-example" : "true"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/headerWithObject" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "objectHeader",
+          "in" : "header",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/resourceWithArrayHeaders" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "integerArrayHeader",
+          "in" : "header",
+          "required" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "integer",
+            "format" : "int64"
+          },
+          "collectionFormat" : "multi"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/resourceWithHeaders" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ {
+          "name" : "booleanHeader",
+          "in" : "header",
+          "required" : true,
+          "type" : "boolean"
+        }, {
+          "name" : "stringHeader",
+          "in" : "header",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "numberHeader",
+          "in" : "header",
+          "required" : true,
+          "type" : "number",
+          "format" : "double"
+        }, {
+          "name" : "integerHeader",
+          "in" : "header",
+          "required" : true,
+          "type" : "integer",
+          "format" : "int64"
+        }, {
+          "name" : "dateOnlyHeader",
+          "in" : "header",
+          "required" : true,
+          "type" : "string",
+          "format" : "date"
+        }, {
+          "name" : "timeOnlyHeader",
+          "in" : "header",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "datetimeHeader",
+          "in" : "header",
+          "required" : true,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "dateTimeOnlyHeader",
+          "in" : "header",
+          "required" : true,
+          "type" : "string",
+          "format" : "date-time"
+        }, {
+          "name" : "fileHeader",
+          "in" : "header",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  }
+}

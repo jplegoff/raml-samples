@@ -1,0 +1,53 @@
+#%RAML 1.0
+title: API with Formats
+
+types:
+# All the number formats
+  FullNumberFormats:
+    properties:
+#     In integers
+      int8IntegerProperty:
+        type: integer
+        format: int8
+      int16IntegerProperty:
+        type: integer
+        format: int16
+      int32IntegerProperty:
+        type: integer
+        format: int32
+      int64IntegerProperty:
+        type: integer
+        format: int64
+      intIntegerProperty:
+        type: integer
+        format: int
+      longIntegerProperty:
+        type: integer
+        format: long
+
+#     In numbers
+      int8NumberProperty:
+        type: number
+        format: int8
+      int16NumberProperty:
+        type: number
+        format: int16
+      int32NumberProperty:
+        type: number
+        format: int32
+      int64NumberProperty:
+        type: number
+        format: int64
+      intNumberProperty:
+        type: number
+        format: int
+      longNumberProperty:
+        type: number
+        format: long
+#      For an undertermined reason, this doesn't get parsed
+      doubleNumberProperty:
+        type: number
+        format: double
+      floatNumberProperty:
+        type: number
+        format: float

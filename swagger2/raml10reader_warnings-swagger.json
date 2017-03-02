@@ -1,0 +1,135 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "My API",
+    "contact" : { }
+  },
+  "security" : [ {
+    "oauth2EmptyScopesWarning" : [ ]
+  } ],
+  "paths" : {
+    "/cannotSerializeExample" : {
+      "get" : {
+        "summary" : "get",
+        "produces" : [ "application/csv" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SimpleType"
+            }
+          }
+        },
+        "security" : [ {
+          "oauth2EmptyScopesWarning" : [ ]
+        } ]
+      }
+    },
+    "/duplicateDeclaredUriParam/{uriParam}" : { },
+    "/duplicateDeclaredUriParam/{uriParam}/childResource/{uriParam}" : { },
+    "/duplicatedUriParam/{uriParam}" : { },
+    "/duplicatedUriParam/{uriParam}/childResource/{uriParam}" : { },
+    "/resource" : {
+      "post" : {
+        "summary" : "post",
+        "consumes" : [ "multipart/form-data" ],
+        "parameters" : [ {
+          "name" : "objectProperty",
+          "in" : "formData",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "oauth2EmptyScopesWarning" : [ ]
+        } ]
+      },
+      "put" : {
+        "summary" : "put",
+        "consumes" : [ "multipart/form-data" ],
+        "parameters" : [ {
+          "name" : "arrayProperty",
+          "in" : "formData",
+          "required" : false,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "oauth2EmptyScopesWarning" : [ ]
+        } ]
+      }
+    },
+    "/resourceBis" : {
+      "post" : {
+        "summary" : "post",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "oauth2EmptyScopesWarning" : [ ]
+        } ]
+      },
+      "put" : {
+        "summary" : "put",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "oauth2EmptyScopesWarning" : [ ]
+        } ]
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "oauth2EmptyScopesWarning" : {
+      "type" : "oauth2",
+      "authorizationUrl" : "https://www.dropbox.com/1/oauth2/authorize",
+      "tokenUrl" : "https://api.dropbox.com/1/oauth2/token",
+      "flow" : "accessCode",
+      "scopes" : { }
+    }
+  },
+  "definitions" : {
+    "SimpleType" : {
+      "type" : "object",
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      }
+    },
+    "MoreThanOneExample" : {
+      "type" : "object",
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string",
+          "example" : "titi"
+        }
+      }
+    },
+    "ArrayOfArrayAtRootLevel" : {
+      "type" : "object"
+    },
+    "ArrayOfArray" : {
+      "type" : "object"
+    }
+  }
+}

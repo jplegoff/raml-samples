@@ -1,0 +1,27 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "My API",
+    "contact" : { }
+  },
+  "paths" : {
+    "/basic" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "my 200 response"
+          },
+          "201" : {
+            "description" : "Status 201"
+          },
+          "204" : {
+            "description" : "Status 204"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "version" : "1.0.0",
+    "title" : "Resources with security requirements",
+    "contact" : { }
+  },
+  "security" : [ {
+    "basic" : [ ]
+  } ],
+  "paths" : {
+    "/" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "basic" : [ ]
+        } ]
+      },
+      "post" : {
+        "summary" : "post",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/noAuth" : { },
+    "/parentResource" : { },
+    "/parentResource/innerResourceWithInheritedSecurity" : {
+      "get" : {
+        "summary" : "get",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        },
+        "security" : [ {
+          "passthrough_queryParam" : [ ]
+        } ]
+      },
+      "post" : {
+        "summary" : "post",
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/parentResourceBis" : { },
+    "/parentResourceBis/innerResourceWithCustomSecurity" : { }
+  },
+  "securityDefinitions" : {
+    "passthrough_queryParam" : {
+      "type" : "apiKey",
+      "name" : "queryParamName",
+      "in" : "query"
+    },
+    "basic" : {
+      "type" : "basic"
+    }
+  }
+}

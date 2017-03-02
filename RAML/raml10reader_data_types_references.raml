@@ -1,0 +1,97 @@
+#%RAML 1.0
+title: API with references between types
+
+types:
+  ObjectType:
+    type: object
+    properties:
+      stringProperty:
+
+  # The items are imported as anonymous representation, and we keep a mapping to import bodies as array.
+  ObjectArrayType:
+    type: array
+    items:
+      type: object
+      properties:
+        integerSubProperty:
+          type: integer
+
+
+  ObjectReference:
+    type: ObjectType
+
+# Not imported in representations but kept in a mapping property
+# as the referenced type will be imported directly in 'array bodies'.
+  ObjectArrayTypeReference:
+    type: array
+    items: ObjectType
+#    Not supported in RWADef representations yet
+#    fileTypes:
+#    minLength:
+#    maxLength:
+
+
+  ReferenceToObjectInProperties:
+    properties:
+      referenceProperty: ObjectType
+
+  ReferenceToArrayOfObjectInProperties:
+    properties:
+      arrayReferenceProperty:
+        type: array
+        items: ObjectType
+
+  ReferenceToListReferenceInProperties:
+    properties:
+      objectListTypeReference:
+        type: ObjectArrayTypeReference
+
+  DirectSelfReference:
+    properties:
+      reference: DirectSelfReference
+
+  SelfReferenceChain:
+    properties:
+      someObject:
+        properties:
+          reference: SelfReferenceChain
+
+  RedefinedPrimitiveType:
+    type: string
+    pattern: "abc"
+
+  ReferenceToRedefinedType:
+    properties:
+      ref: RedefinedPrimitiveType
+
+  ReferenceArrayToRedefinedType:
+    properties:
+      referenceArray:
+        type: array
+        items: RedefinedPrimitiveType
+
+  RedefinedPrimitiveTypeArray:
+    type: array
+    items:
+      type: string
+      pattern: "abc"
+
+  ReferenceToRedefinedTypeArray:
+    properties:
+      ref: RedefinedPrimitiveTypeArray
+
+  ArrayTypesWithSyntacticSugar:
+    properties:
+      redefinedPrimitiveType: RedefinedPrimitiveType[]
+      simpleTypeArray: ObjectType[]
+
+      # ignored (array of array not supported)
+      redefineArrayOfPrimitiveType: RedefinedPrimitiveTypeArray[]
+
+  ArrayOfArrayWithSyntacticSugar:
+    properties:
+      arrayOfArray: ObjectType[][]
+
+# NB: forbidden by parser
+#  SomeType:
+#    type: SomeType

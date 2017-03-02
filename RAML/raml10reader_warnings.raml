@@ -1,0 +1,139 @@
+#%RAML 1.0
+title: My API
+
+baseUri: uri-without-protocol.com
+#baseUri: ftp://uri-with-unsupported-protocol # same message as for above
+
+baseUriParameters:
+# not imported
+# some message if in resource uri parameters
+  notDeclaredInUrl: string
+
+securedBy: oauth2EmptyScopesWarning
+
+securitySchemes:
+  oauth1: # unsupported OAuth 1.0
+    type: OAuth 1.0
+    settings:
+      requestTokenUri: https://api.dropbox.com/1/oauth/request_token
+      authorizationUri: https://www.dropbox.com/1/oauth/authorize
+      tokenCredentialsUri: https://api.dropbox.com/1/oauth/access_token
+
+# not imported if grants are empty
+  oauth2emptyGrants:
+    type: OAuth 2.0
+    settings:
+      authorizationUri: https://www.dropbox.com/1/oauth2/authorize
+      accessTokenUri: https://api.dropbox.com/1/oauth2/token
+      authorizationGrants: []
+
+
+# imported with warning
+  oauth2EmptyScopesWarning:
+    type: OAuth 2.0
+    settings:
+      authorizationUri: https://www.dropbox.com/1/oauth2/authorize
+      accessTokenUri: https://api.dropbox.com/1/oauth2/token
+      authorizationGrants: [authorization_code]
+      scopes: []
+
+# imported with warning
+# same warning for more that 1 header or queryParameter
+  query_param_and_header:
+    type: Pass Through
+    describedBy:
+     headers:
+      api_key1: string
+     queryParameters:
+      query1: string
+
+# imported as custom
+  no_type_provided:
+
+types:
+ # Unsupported primitive type at root level
+  PrimitiveType:
+    type: string
+
+  MoreThanOneExample:
+    properties:
+      stringProperty:
+        type: string
+        examples:
+          first: titi
+          second: toto
+
+# imported as empty representation
+  ArrayOfArrayAtRootLevel:
+    type: array
+    items:
+      type: array
+
+# Imported as empty representation
+  ArrayOfArray:
+    properties:
+      arrayOfArrayProperty:
+        type: array
+        items: array
+
+  SimpleType:
+    properties:
+      stringProperty:
+
+/resource:
+  post:
+    body:
+      multipart/form-data:
+        properties:
+          # Unsupported type object in form body properties
+          # Will be imported as string
+          objectProperty:
+            type: object
+            properties:
+              prop:
+
+  put:
+    body:
+      multipart/form-data:
+        properties:
+          # Unsupported array of object in form body properties
+          # Will be imported as string
+          arrayProperty:
+            type: array
+            items:
+              properties:
+                prop:
+/resourceBis:
+  post:
+    body:
+      # Unsupported primitive form body declaration, not imported at all
+      multipart/form-data:
+        type: string
+  put:
+    body:
+      # Unsupported type 'any' for form body declaration, not imported at all
+      multipart/form-data:
+
+# @jonathan is the message above sufficiently explicit for our users ?
+
+/duplicatedUriParam/{uriParam}:
+  # ignoring redefinition of uriParam
+  /childResource/{uriParam}:
+
+/duplicateDeclaredUriParam/{uriParam}:
+  uriParameters:
+    uriParam: string
+  # ignoring redefinition of uriParam
+  /childResource/{uriParam}:
+    uriParameters:
+      uriParam: string
+
+/cannotSerializeExample:
+  get:
+    responses:
+      200:
+        body:
+          application/csv:
+            type: SimpleType
+            example:
+              stringProperty: "test"
