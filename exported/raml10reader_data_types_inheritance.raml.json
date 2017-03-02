@@ -1,0 +1,153 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/raml10reader_data_types_inheritance",
+  "schemes" : [ "https" ],
+  "paths" : { },
+  "definitions" : {
+    "AlertableAdmin" : {
+      "required" : [ "clearanceLevel", "firstname", "lastname", "phone", "salary" ],
+      "properties" : {
+        "firstname" : {
+          "type" : "string"
+        },
+        "lastname" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "salary" : {
+          "format" : "double",
+          "type" : "number"
+        },
+        "clearanceLevel" : {
+          "type" : "string"
+        },
+        "phone" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "Org" : {
+      "required" : [ "Head", "onCall" ],
+      "properties" : {
+        "onCall" : {
+          "$ref" : "#/definitions/AlertableAdmin"
+        },
+        "Head" : {
+          "$ref" : "#/definitions/Manager"
+        }
+      },
+      "type" : "object"
+    },
+    "Alertable" : {
+      "type" : "object"
+    },
+    "Manager" : {
+      "required" : [ "firstname", "lastname", "phone", "reports", "salary" ],
+      "properties" : {
+        "firstname" : {
+          "type" : "string"
+        },
+        "lastname" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "salary" : {
+          "format" : "double",
+          "type" : "number"
+        },
+        "reports" : {
+          "items" : {
+            "$ref" : "#/definitions/Person"
+          },
+          "type" : "array"
+        },
+        "phone" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "Admin" : {
+      "required" : [ "clearanceLevel", "firstname", "lastname", "salary" ],
+      "properties" : {
+        "firstname" : {
+          "type" : "string"
+        },
+        "lastname" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "salary" : {
+          "format" : "double",
+          "type" : "number"
+        },
+        "clearanceLevel" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "Person" : {
+      "required" : [ "firstname", "lastname", "salary" ],
+      "properties" : {
+        "firstname" : {
+          "type" : "string"
+        },
+        "lastname" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "salary" : {
+          "format" : "double",
+          "type" : "number"
+        }
+      },
+      "type" : "object"
+    },
+    "SuperAdmin" : {
+      "description" : "extending existing properties",
+      "required" : [ "clearanceLevel", "firstname", "lastname", "salary" ],
+      "properties" : {
+        "firstname" : {
+          "type" : "string"
+        },
+        "lastname" : {
+          "type" : "string"
+        },
+        "title" : {
+          "type" : "string"
+        },
+        "salary" : {
+          "format" : "double",
+          "type" : "number"
+        },
+        "clearanceLevel" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "raml10reader_data_types_inheritance.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

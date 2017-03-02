@@ -1,0 +1,322 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/response_body_type_reference",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/referenceWithArraySyntacticSugar" : {
+      "put" : {
+        "description" : "",
+        "operationId" : "PUT /referenceWithArraySyntacticSugar",
+        "summary" : "put",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "items" : {
+                "format" : "int64",
+                "type" : "integer"
+              },
+              "type" : "array"
+            }
+          }
+        }
+      },
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /referenceWithArraySyntacticSugar",
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "items" : {
+                "$ref" : "#/definitions/SimpleType"
+              },
+              "type" : "array"
+            }
+          }
+        }
+      }
+    },
+    "/arrayOfArray" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /arrayOfArray",
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/ArrayOfArray"
+            }
+          }
+        }
+      }
+    },
+    "/multipleExample" : {
+      "put" : {
+        "description" : "",
+        "operationId" : "PUT /multipleExample",
+        "summary" : "put",
+        "produces" : [ "application/xml" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SimpleType"
+            }
+          }
+        }
+      }
+    },
+    "/redefinedPrimitiveTypeReference" : {
+      "put" : {
+        "description" : "",
+        "operationId" : "PUT /redefinedPrimitiveTypeReference",
+        "summary" : "put",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "items" : {
+                "format" : "int64",
+                "type" : "integer"
+              },
+              "type" : "array"
+            }
+          }
+        }
+      },
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /redefinedPrimitiveTypeReference",
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "type" : "integer"
+            }
+          }
+        }
+      }
+    },
+    "/inlineReferenceWithArraySyntacticSugar" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /inlineReferenceWithArraySyntacticSugar",
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/anonymousRepresentation3"
+            }
+          }
+        }
+      }
+    },
+    "/jsonSchemaReference" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /jsonSchemaReference",
+        "summary" : "get",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/JsonSchema"
+            }
+          }
+        }
+      }
+    },
+    "/arrayType" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /arrayType",
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "items" : {
+                "$ref" : "#/definitions/anonymousRepresentation"
+              },
+              "type" : "array"
+            }
+          }
+        }
+      }
+    },
+    "/basic" : {
+      "put" : {
+        "description" : "",
+        "operationId" : "PUT /basic",
+        "summary" : "put",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SimpleType"
+            }
+          }
+        }
+      }
+    },
+    "/basicWithExample" : {
+      "put" : {
+        "description" : "",
+        "operationId" : "PUT /basicWithExample",
+        "summary" : "put",
+        "produces" : [ "application/xml" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SimpleType"
+            }
+          }
+        }
+      }
+    },
+    "/arrayTypeReference" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /arrayTypeReference",
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "items" : {
+                "$ref" : "#/definitions/SimpleType"
+              },
+              "type" : "array"
+            }
+          }
+        }
+      }
+    },
+    "/multipleMediaTypesAndExamples" : {
+      "put" : {
+        "description" : "",
+        "operationId" : "PUT /multipleMediaTypesAndExamples",
+        "summary" : "put",
+        "produces" : [ "application/json", "application/xml", "application/x-yaml" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SimpleType"
+            }
+          }
+        }
+      }
+    },
+    "/referencesInProperties" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /referencesInProperties",
+        "summary" : "post",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/anonymousRepresentation2"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "SimpleType" : {
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "anonymousRepresentation3" : {
+      "required" : [ "reference" ],
+      "properties" : {
+        "reference" : {
+          "items" : {
+            "$ref" : "#/definitions/SimpleType"
+          },
+          "type" : "array"
+        }
+      },
+      "type" : "object"
+    },
+    "anonymousRepresentation2" : {
+      "required" : [ "reference", "stringPropety" ],
+      "properties" : {
+        "stringPropety" : {
+          "type" : "string"
+        },
+        "reference" : {
+          "$ref" : "#/definitions/SimpleType"
+        }
+      },
+      "type" : "object"
+    },
+    "anonymousRepresentation" : {
+      "description" : "the stuff",
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "JsonSchema" : {
+      "required" : [ "firstName", "lastName" ],
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "age" : {
+          "description" : "Age in years",
+          "format" : "int64",
+          "type" : "integer"
+        }
+      },
+      "type" : "object"
+    },
+    "ArrayOfArray" : {
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "response_body_type_reference.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

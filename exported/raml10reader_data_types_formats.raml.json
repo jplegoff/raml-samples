@@ -1,0 +1,83 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/raml10reader_data_types_formats",
+  "schemes" : [ "https" ],
+  "paths" : { },
+  "definitions" : {
+    "FullNumberFormats" : {
+      "required" : [ "doubleNumberProperty", "floatNumberProperty", "int16IntegerProperty", "int16NumberProperty", "int32IntegerProperty", "int32NumberProperty", "int64IntegerProperty", "int64NumberProperty", "int8IntegerProperty", "int8NumberProperty", "intIntegerProperty", "intNumberProperty", "longIntegerProperty", "longNumberProperty" ],
+      "properties" : {
+        "int8IntegerProperty" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "int16IntegerProperty" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "int32IntegerProperty" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "int64IntegerProperty" : {
+          "format" : "int64",
+          "type" : "integer"
+        },
+        "intIntegerProperty" : {
+          "format" : "int64",
+          "type" : "integer"
+        },
+        "longIntegerProperty" : {
+          "format" : "int64",
+          "type" : "integer"
+        },
+        "int8NumberProperty" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "int16NumberProperty" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "int32NumberProperty" : {
+          "format" : "int32",
+          "type" : "integer"
+        },
+        "int64NumberProperty" : {
+          "format" : "int64",
+          "type" : "integer"
+        },
+        "intNumberProperty" : {
+          "format" : "int64",
+          "type" : "integer"
+        },
+        "longNumberProperty" : {
+          "format" : "int64",
+          "type" : "integer"
+        },
+        "doubleNumberProperty" : {
+          "format" : "double",
+          "type" : "number"
+        },
+        "floatNumberProperty" : {
+          "format" : "float",
+          "type" : "number"
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "raml10reader_data_types_formats.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

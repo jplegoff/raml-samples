@@ -1,0 +1,121 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/raml10reader_warnings",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/resource" : {
+      "put" : {
+        "description" : "",
+        "operationId" : "PUT /resource",
+        "summary" : "put",
+        "consumes" : [ "multipart/form-data" ],
+        "parameters" : [ {
+          "required" : false,
+          "in" : "formData",
+          "name" : "arrayProperty",
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /resource",
+        "summary" : "post",
+        "consumes" : [ "multipart/form-data" ],
+        "parameters" : [ {
+          "required" : false,
+          "in" : "formData",
+          "name" : "objectProperty",
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/cannotSerializeExample" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /cannotSerializeExample",
+        "summary" : "get",
+        "produces" : [ "application/csv" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SimpleType"
+            }
+          }
+        }
+      }
+    },
+    "/resourceBis" : {
+      "put" : {
+        "description" : "",
+        "operationId" : "PUT /resourceBis",
+        "summary" : "put",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /resourceBis",
+        "summary" : "post",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "SimpleType" : {
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "MoreThanOneExample" : {
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "example" : "titi",
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "ArrayOfArrayAtRootLevel" : {
+      "type" : "object"
+    },
+    "ArrayOfArray" : {
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "raml10reader_warnings.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

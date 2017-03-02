@@ -1,0 +1,20 @@
+{
+  "id" : "744f0a2f-5975-45df-a10f-208bf00d86dc",
+  "description" : "",
+  "apiVersion" : "1.0.0",
+  "swaggerVersion" : "1.1",
+  "basePath" : "http://",
+  "resourcePath" : "/",
+  "models" : { },
+  "consumes" : [ ],
+  "produces" : [ ],
+  "name" : "raml10reader_security_schemes_simple.raml",
+  "summary" : "",
+  "cors" : false,
+  "expired" : false,
+  "deprecated" : false,
+  "retirementDate" : 0,
+  "tags" : { },
+  "apis" : [ ],
+  "type" : "rest"
+}

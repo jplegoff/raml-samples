@@ -1,0 +1,83 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/response_body_inline_type_declaration",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/basic" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /basic",
+        "summary" : "get",
+        "produces" : [ "application/json" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/anonymousRepresentation"
+            }
+          },
+          "201" : {
+            "description" : "Status 201",
+            "schema" : {
+              "items" : {
+                "$ref" : "#/definitions/anonymousRepresentation2"
+              },
+              "type" : "array"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "anonymousRepresentation2" : {
+      "required" : [ "integerProperty", "objectProperty" ],
+      "properties" : {
+        "integerProperty" : {
+          "format" : "int64",
+          "type" : "integer"
+        },
+        "objectProperty" : {
+          "required" : [ "stringSubProperty" ],
+          "properties" : {
+            "stringSubProperty" : {
+              "example" : "inner property",
+              "type" : "string"
+            }
+          },
+          "type" : "object"
+        }
+      },
+      "type" : "object"
+    },
+    "anonymousRepresentation" : {
+      "description" : "Object body",
+      "required" : [ "integerProperty", "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "example" : "toto",
+          "type" : "string"
+        },
+        "integerProperty" : {
+          "format" : "int64",
+          "example" : 1,
+          "type" : "integer"
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "response_body_inline_type_declaration.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/response_simple",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/basic" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /basic",
+        "summary" : "get",
+        "responses" : {
+          "200" : {
+            "description" : "my 200 response"
+          },
+          "201" : {
+            "description" : "Status 201"
+          },
+          "204" : {
+            "description" : "Status 204"
+          }
+        }
+      }
+    }
+  },
+  "info" : {
+    "title" : "response_simple.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

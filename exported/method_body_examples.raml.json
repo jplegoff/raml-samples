@@ -1,0 +1,117 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/method_body_examples",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/example/with/value" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /example/with/value",
+        "summary" : "post",
+        "consumes" : [ "application/json", "application/x-yaml" ],
+        "parameters" : [ {
+          "required" : false,
+          "in" : "body",
+          "name" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/SchemaWithoutExample"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/example/no/value" : {
+      "put" : {
+        "description" : "",
+        "operationId" : "PUT /example/no/value",
+        "summary" : "put",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "required" : false,
+          "in" : "body",
+          "name" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/SchemaWithoutExample"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /example/no/value",
+        "summary" : "post",
+        "consumes" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "parameters" : [ {
+          "required" : false,
+          "in" : "body",
+          "name" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/SchemaWithoutExample"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "SchemaWithPropertyValue" : {
+      "required" : [ "value" ],
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "SchemaWithExample" : {
+      "required" : [ "name" ],
+      "properties" : {
+        "name" : {
+          "example" : "Bob",
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "SchemaWithoutExample" : {
+      "required" : [ "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "method_body_examples.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

@@ -1,0 +1,75 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/raml10reader_data_types_union",
+  "schemes" : [ "https" ],
+  "paths" : { },
+  "definitions" : {
+    "HasHome" : {
+      "required" : [ "homeAddress" ],
+      "properties" : {
+        "homeAddress" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "HomeDog" : {
+      "required" : [ "fangs", "homeAddress", "name" ],
+      "properties" : {
+        "homeAddress" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "fangs" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "Cat" : {
+      "required" : [ "color", "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "color" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "HomeAnimal" : {
+      "type" : "object"
+    },
+    "Dog" : {
+      "required" : [ "fangs", "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "fangs" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "Pet" : {
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "raml10reader_data_types_union.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

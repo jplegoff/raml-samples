@@ -1,0 +1,184 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/method_queryParameters",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/queryParametersWithFacets" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /queryParametersWithFacets",
+        "summary" : "get",
+        "parameters" : [ {
+          "description" : "a simple query parameter really",
+          "required" : true,
+          "in" : "query",
+          "name" : "stringQueryParameterWithFacets",
+          "type" : "string"
+        }, {
+          "description" : "a simple query parameter really",
+          "format" : "int64",
+          "required" : false,
+          "in" : "query",
+          "name" : "integerQueryParameterWithFacets",
+          "type" : "integer"
+        }, {
+          "required" : true,
+          "in" : "query",
+          "name" : "queryParamWithSyntacticSugar?",
+          "type" : "string"
+        }, {
+          "description" : "Array description",
+          "required" : true,
+          "items" : {
+            "type" : "boolean"
+          },
+          "in" : "query",
+          "name" : "arrayQueryParameterWithProperties",
+          "type" : "array"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/queryParameterWithObject" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /queryParameterWithObject",
+        "summary" : "get",
+        "parameters" : [ {
+          "required" : true,
+          "in" : "query",
+          "name" : "objectQueryParameter",
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/queryParameterWithArrayOfArray" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /queryParameterWithArrayOfArray",
+        "summary" : "get",
+        "parameters" : [ {
+          "required" : true,
+          "items" : {
+            "type" : "string"
+          },
+          "in" : "query",
+          "name" : "arrayOfArrayQueryParameter",
+          "type" : "array"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/resourceWithArrayQueryParameters" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /resourceWithArrayQueryParameters",
+        "summary" : "get",
+        "parameters" : [ {
+          "required" : true,
+          "items" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "in" : "query",
+          "name" : "integerArrayQueryParameter",
+          "type" : "array"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/resourceWithQueryParameters" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /resourceWithQueryParameters",
+        "summary" : "get",
+        "parameters" : [ {
+          "required" : true,
+          "in" : "query",
+          "name" : "booleanQueryParameter",
+          "type" : "boolean"
+        }, {
+          "required" : true,
+          "in" : "query",
+          "name" : "stringQueryParameter",
+          "type" : "string"
+        }, {
+          "format" : "double",
+          "required" : true,
+          "in" : "query",
+          "name" : "numberQueryParameter",
+          "type" : "number"
+        }, {
+          "format" : "int64",
+          "required" : true,
+          "in" : "query",
+          "name" : "integerQueryParameter",
+          "type" : "integer"
+        }, {
+          "format" : "date",
+          "required" : true,
+          "in" : "query",
+          "name" : "dateOnlyQueryParameter",
+          "type" : "string"
+        }, {
+          "required" : true,
+          "in" : "query",
+          "name" : "timeOnlyQueryParameter",
+          "type" : "string"
+        }, {
+          "format" : "date-time",
+          "required" : true,
+          "in" : "query",
+          "name" : "datetimeQueryParameter",
+          "type" : "string"
+        }, {
+          "format" : "date-time",
+          "required" : true,
+          "in" : "query",
+          "name" : "dateTimeOnlyQueryParameter",
+          "type" : "string"
+        }, {
+          "required" : true,
+          "in" : "query",
+          "name" : "fileQueryParameter",
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "info" : {
+    "title" : "method_queryParameters.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

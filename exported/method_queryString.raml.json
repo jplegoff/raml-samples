@@ -1,0 +1,214 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/method_queryString",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/arrayProperty" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /arrayProperty",
+        "summary" : "get",
+        "parameters" : [ {
+          "required" : true,
+          "items" : {
+            "type" : "string"
+          },
+          "in" : "query",
+          "name" : "arrayProperty",
+          "type" : "array"
+        }, {
+          "required" : true,
+          "in" : "query",
+          "name" : "objectProperty",
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/array" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /array",
+        "summary" : "get",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/inlineExamplesRules" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /inlineExamplesRules",
+        "summary" : "get",
+        "parameters" : [ {
+          "required" : true,
+          "in" : "query",
+          "name" : "stringProperty",
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/simple" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /simple",
+        "summary" : "get",
+        "parameters" : [ {
+          "description" : "a simple header really",
+          "required" : true,
+          "in" : "query",
+          "name" : "stringProperty",
+          "type" : "string"
+        }, {
+          "description" : "a simple header really",
+          "format" : "int64",
+          "required" : false,
+          "in" : "query",
+          "name" : "integerProperty",
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/inlineQueryString" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /inlineQueryString",
+        "summary" : "get",
+        "parameters" : [ {
+          "required" : true,
+          "in" : "query",
+          "name" : "simpleStringQueryString",
+          "type" : "string"
+        }, {
+          "format" : "double",
+          "required" : true,
+          "in" : "query",
+          "name" : "simpleNumberQueryString",
+          "type" : "number"
+        }, {
+          "format" : "int64",
+          "required" : true,
+          "in" : "query",
+          "name" : "simpleIntegerQueryString",
+          "type" : "integer"
+        }, {
+          "required" : true,
+          "in" : "query",
+          "name" : "simpleBooleanQueryString",
+          "type" : "boolean"
+        }, {
+          "format" : "date",
+          "required" : true,
+          "in" : "query",
+          "name" : "simpleDateOnlyQueryString",
+          "type" : "string"
+        }, {
+          "required" : true,
+          "in" : "query",
+          "name" : "simpleTimeOnlyQueryString",
+          "type" : "string"
+        }, {
+          "format" : "date-time",
+          "required" : true,
+          "in" : "query",
+          "name" : "simpleDatetimeQueryString",
+          "type" : "string"
+        }, {
+          "required" : true,
+          "in" : "query",
+          "name" : "simpleFileQueryString",
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/primitiveQueryString" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /primitiveQueryString",
+        "summary" : "get",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "simpleQueryString" : {
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "description" : "a simple header really",
+          "example" : "something",
+          "default" : "stuff",
+          "type" : "string"
+        },
+        "integerProperty" : {
+          "description" : "a simple header really",
+          "format" : "int64",
+          "example" : 2,
+          "default" : 1,
+          "type" : "integer"
+        }
+      },
+      "type" : "object"
+    },
+    "arrayAndObjectQueryString" : {
+      "required" : [ "arrayProperty", "objectProperty" ],
+      "properties" : {
+        "arrayProperty" : {
+          "items" : {
+            "type" : "string"
+          },
+          "type" : "array"
+        },
+        "objectProperty" : {
+          "required" : [ "integerProperty" ],
+          "properties" : {
+            "integerProperty" : {
+              "format" : "int64",
+              "type" : "integer"
+            }
+          },
+          "type" : "object"
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "method_queryString.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

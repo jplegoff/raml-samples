@@ -1,0 +1,32 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/method_simple",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/basic" : {
+      "post" : {
+        "description" : "a description",
+        "operationId" : "POST /basic",
+        "summary" : "A display name",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "info" : {
+    "title" : "method_simple.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

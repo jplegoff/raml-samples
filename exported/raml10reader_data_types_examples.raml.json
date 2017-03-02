@@ -1,0 +1,166 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/raml10reader_data_types_examples",
+  "schemes" : [ "https" ],
+  "paths" : { },
+  "definitions" : {
+    "MutlipleExampleDefinitions" : {
+      "required" : [ "objectProperty" ],
+      "properties" : {
+        "objectProperty" : {
+          "required" : [ "integerProperty", "stringProperty" ],
+          "properties" : {
+            "stringProperty" : {
+              "example" : "bob",
+              "type" : "string"
+            },
+            "integerProperty" : {
+              "format" : "int64",
+              "example" : 123,
+              "type" : "integer"
+            }
+          },
+          "type" : "object"
+        }
+      },
+      "type" : "object"
+    },
+    "ExamplesInProperties" : {
+      "required" : [ "objectProperty" ],
+      "properties" : {
+        "objectProperty" : {
+          "required" : [ "integerProperty" ],
+          "properties" : {
+            "integerProperty" : {
+              "format" : "int64",
+              "example" : 123,
+              "type" : "integer"
+            }
+          },
+          "type" : "object"
+        }
+      },
+      "type" : "object"
+    },
+    "ObjectExample" : {
+      "required" : [ "objectProperty" ],
+      "properties" : {
+        "objectProperty" : {
+          "required" : [ "integerProperty", "stringProperty" ],
+          "properties" : {
+            "stringProperty" : {
+              "example" : "bob",
+              "type" : "string"
+            },
+            "integerProperty" : {
+              "format" : "int64",
+              "example" : 123,
+              "type" : "integer"
+            }
+          },
+          "type" : "object"
+        }
+      },
+      "type" : "object"
+    },
+    "ExampleAtPropertyLevel" : {
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "example" : "toto",
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "ExampleInComposite" : {
+      "required" : [ "compositeProperty" ],
+      "properties" : {
+        "compositeProperty" : {
+          "required" : [ "integerProperty", "stringProperty" ],
+          "properties" : {
+            "stringProperty" : {
+              "example" : "StringExample",
+              "type" : "string"
+            },
+            "integerProperty" : {
+              "format" : "int64",
+              "example" : 123,
+              "type" : "integer"
+            }
+          },
+          "type" : "object"
+        }
+      },
+      "type" : "object"
+    },
+    "Examples" : {
+      "required" : [ "integerProperty" ],
+      "properties" : {
+        "integerProperty" : {
+          "format" : "int64",
+          "example" : 123,
+          "type" : "integer"
+        }
+      },
+      "type" : "object"
+    },
+    "FullPrimitives" : {
+      "required" : [ "dateOnlyProperty", "dateTimeOnlyProperty", "dateTimeProperty", "integerProperty", "numberProperty", "timeOnlyProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "example" : "Dido",
+          "type" : "string"
+        },
+        "booleanProperty" : {
+          "example" : true,
+          "default" : false,
+          "type" : "boolean"
+        },
+        "numberProperty" : {
+          "format" : "double",
+          "example" : 123.456,
+          "type" : "number"
+        },
+        "integerProperty" : {
+          "format" : "int64",
+          "example" : 123,
+          "type" : "integer"
+        },
+        "dateOnlyProperty" : {
+          "format" : "date",
+          "example" : "2016-12-20",
+          "type" : "string"
+        },
+        "timeOnlyProperty" : {
+          "example" : "12:31:00",
+          "type" : "string"
+        },
+        "dateTimeOnlyProperty" : {
+          "format" : "date-time",
+          "example" : "2016-12-20T21:00:00",
+          "type" : "string"
+        },
+        "dateTimeProperty" : {
+          "format" : "date-time",
+          "example" : "2016-12-20T12:31:00.090Z",
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "raml10reader_data_types_examples.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

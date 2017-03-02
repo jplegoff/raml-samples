@@ -1,0 +1,162 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/method_body_form_parameters",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/objectExamples" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /objectExamples",
+        "summary" : "post",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "required" : true,
+          "in" : "formData",
+          "name" : "stringProperty",
+          "type" : "string"
+        }, {
+          "format" : "int64",
+          "required" : true,
+          "in" : "formData",
+          "name" : "integerProperty",
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/partialSupport" : {
+      "patch" : {
+        "description" : "",
+        "operationId" : "PATCH /partialSupport",
+        "summary" : "patch",
+        "parameters" : [ {
+          "description" : "Array description",
+          "required" : true,
+          "items" : {
+            "type" : "string"
+          },
+          "in" : "formData",
+          "name" : "stringProperty",
+          "type" : "array"
+        }, {
+          "format" : "int64",
+          "required" : true,
+          "in" : "formData",
+          "name" : "integerProperty",
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/basic" : {
+      "put" : {
+        "description" : "",
+        "operationId" : "PUT /basic",
+        "summary" : "put",
+        "consumes" : [ "application/x-www-form-urlencoded" ],
+        "parameters" : [ {
+          "description" : "my string",
+          "required" : false,
+          "in" : "formData",
+          "name" : "stringProperty",
+          "type" : "string"
+        }, {
+          "description" : "my integer",
+          "format" : "int64",
+          "required" : false,
+          "in" : "formData",
+          "name" : "integerProperty",
+          "type" : "integer"
+        }, {
+          "required" : true,
+          "in" : "formData",
+          "name" : "fileParameter",
+          "type" : "file"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /basic",
+        "summary" : "post",
+        "consumes" : [ "multipart/form-data" ],
+        "parameters" : [ {
+          "required" : true,
+          "in" : "formData",
+          "name" : "stringProperty",
+          "type" : "string"
+        }, {
+          "format" : "int64",
+          "required" : true,
+          "in" : "formData",
+          "name" : "integerProperty",
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "patch" : {
+        "description" : "Use both form mediaTypes",
+        "operationId" : "PATCH /basic",
+        "summary" : "patch",
+        "parameters" : [ {
+          "required" : true,
+          "in" : "formData",
+          "name" : "stringProperty",
+          "type" : "string"
+        }, {
+          "format" : "int64",
+          "required" : true,
+          "in" : "formData",
+          "name" : "integerProperty",
+          "type" : "integer"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/primitiveFormParam" : {
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /primitiveFormParam",
+        "summary" : "post",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "info" : {
+    "title" : "method_body_form_parameters.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

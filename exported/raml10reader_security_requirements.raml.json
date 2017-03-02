@@ -1,0 +1,64 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/raml10reader_security_requirements",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/parentResource/innerResourceWithInheritedSecurity" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /parentResource/innerResourceWithInheritedSecurity",
+        "summary" : "get",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /parentResource/innerResourceWithInheritedSecurity",
+        "summary" : "post",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /",
+        "summary" : "get",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /",
+        "summary" : "post",
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "info" : {
+    "title" : "raml10reader_security_requirements.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

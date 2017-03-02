@@ -1,0 +1,160 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/raml10reader_data_types_references",
+  "schemes" : [ "https" ],
+  "paths" : { },
+  "definitions" : {
+    "DirectSelfReference" : {
+      "required" : [ "reference" ],
+      "properties" : {
+        "reference" : {
+          "$ref" : "#/definitions/DirectSelfReference"
+        }
+      },
+      "type" : "object"
+    },
+    "ReferenceToArrayOfObjectInProperties" : {
+      "required" : [ "arrayReferenceProperty" ],
+      "properties" : {
+        "arrayReferenceProperty" : {
+          "items" : {
+            "$ref" : "#/definitions/ObjectType"
+          },
+          "type" : "array"
+        }
+      },
+      "type" : "object"
+    },
+    "ReferenceArrayToRedefinedType" : {
+      "required" : [ "referenceArray" ],
+      "properties" : {
+        "referenceArray" : {
+          "items" : {
+            "type" : "string"
+          },
+          "type" : "array"
+        }
+      },
+      "type" : "object"
+    },
+    "ArrayOfArrayWithSyntacticSugar" : {
+      "type" : "object"
+    },
+    "ObjectType" : {
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "ObjectReference" : {
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "ReferenceToRedefinedType" : {
+      "required" : [ "ref" ],
+      "properties" : {
+        "ref" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "ArrayTypesWithSyntacticSugar" : {
+      "required" : [ "redefinedPrimitiveType", "simpleTypeArray" ],
+      "properties" : {
+        "redefinedPrimitiveType" : {
+          "items" : {
+            "type" : "string"
+          },
+          "type" : "array"
+        },
+        "simpleTypeArray" : {
+          "items" : {
+            "$ref" : "#/definitions/ObjectType"
+          },
+          "type" : "array"
+        }
+      },
+      "type" : "object"
+    },
+    "anonymousRepresentation" : {
+      "required" : [ "integerSubProperty" ],
+      "properties" : {
+        "integerSubProperty" : {
+          "format" : "int64",
+          "type" : "integer"
+        }
+      },
+      "type" : "object"
+    },
+    "ReferenceToRedefinedTypeArray" : {
+      "required" : [ "ref" ],
+      "properties" : {
+        "ref" : {
+          "items" : {
+            "type" : "string"
+          },
+          "type" : "array"
+        }
+      },
+      "type" : "object"
+    },
+    "ReferenceToObjectInProperties" : {
+      "required" : [ "referenceProperty" ],
+      "properties" : {
+        "referenceProperty" : {
+          "$ref" : "#/definitions/ObjectType"
+        }
+      },
+      "type" : "object"
+    },
+    "SelfReferenceChain" : {
+      "required" : [ "someObject" ],
+      "properties" : {
+        "someObject" : {
+          "required" : [ "reference" ],
+          "properties" : {
+            "reference" : {
+              "$ref" : "#/definitions/SelfReferenceChain"
+            }
+          },
+          "type" : "object"
+        }
+      },
+      "type" : "object"
+    },
+    "ReferenceToListReferenceInProperties" : {
+      "required" : [ "objectListTypeReference" ],
+      "properties" : {
+        "objectListTypeReference" : {
+          "items" : {
+            "$ref" : "#/definitions/ObjectType"
+          },
+          "type" : "array"
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "raml10reader_data_types_references.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

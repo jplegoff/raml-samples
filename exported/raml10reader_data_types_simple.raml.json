@@ -1,0 +1,146 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/raml10reader_data_types_simple",
+  "schemes" : [ "https" ],
+  "paths" : { },
+  "definitions" : {
+    "FullPrimitiveLists" : {
+      "required" : [ "booleanProperty", "dateOnlyProperty", "dateTimeOnlyProperty", "dateTimeProperty", "integerProperty", "nullProperty", "numberProperty", "stringArray", "stringArrayWithSyntacticSugar", "stringProperty", "timeOnlyProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "items" : {
+            "type" : "string"
+          },
+          "type" : "array"
+        },
+        "booleanProperty" : {
+          "items" : {
+            "type" : "boolean"
+          },
+          "type" : "array"
+        },
+        "numberProperty" : {
+          "items" : {
+            "format" : "double",
+            "type" : "number"
+          },
+          "type" : "array"
+        },
+        "integerProperty" : {
+          "items" : {
+            "format" : "int64",
+            "type" : "integer"
+          },
+          "type" : "array"
+        },
+        "dateOnlyProperty" : {
+          "items" : {
+            "format" : "date",
+            "type" : "string"
+          },
+          "type" : "array"
+        },
+        "timeOnlyProperty" : {
+          "items" : {
+            "type" : "string"
+          },
+          "type" : "array"
+        },
+        "dateTimeOnlyProperty" : {
+          "items" : {
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "type" : "array"
+        },
+        "dateTimeProperty" : {
+          "items" : {
+            "format" : "date-time",
+            "type" : "string"
+          },
+          "type" : "array"
+        },
+        "nullProperty" : {
+          "items" : {
+            "type" : "string"
+          },
+          "type" : "array"
+        },
+        "stringArray" : {
+          "description" : "Array description",
+          "items" : {
+            "type" : "string"
+          },
+          "type" : "array"
+        },
+        "stringArrayWithSyntacticSugar" : {
+          "items" : {
+            "type" : "string"
+          },
+          "type" : "array"
+        }
+      },
+      "type" : "object"
+    },
+    "FullPrimitives" : {
+      "description" : "# Title\nMy markdown description, poseyyyy!\n",
+      "required" : [ "dateOnlyProperty", "dateTimeOnlyProperty", "dateTimeProperty", "integerProperty", "nullProperty", "numberProperty", "timeOnlyProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "description" : "A description",
+          "example" : "Tata",
+          "default" : "Yeeeeeha !",
+          "type" : "string"
+        },
+        "booleanProperty" : {
+          "default" : false,
+          "type" : "boolean"
+        },
+        "numberProperty" : {
+          "format" : "double",
+          "example" : 2.0,
+          "default" : 1.0,
+          "type" : "number"
+        },
+        "integerProperty" : {
+          "format" : "int64",
+          "example" : 2,
+          "default" : 1,
+          "type" : "integer"
+        },
+        "dateOnlyProperty" : {
+          "format" : "date",
+          "type" : "string"
+        },
+        "timeOnlyProperty" : {
+          "type" : "string"
+        },
+        "dateTimeOnlyProperty" : {
+          "format" : "date-time",
+          "type" : "string"
+        },
+        "dateTimeProperty" : {
+          "format" : "date-time",
+          "type" : "string"
+        },
+        "nullProperty" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "raml10reader_data_types_simple.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

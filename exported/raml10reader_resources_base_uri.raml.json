@@ -1,0 +1,19 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/v3/{myUriParam}/{listUriParam}",
+  "schemes" : [ "https" ],
+  "paths" : { },
+  "info" : {
+    "title" : "raml10reader_resources_base_uri.raml",
+    "description" : "",
+    "version" : "v3"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

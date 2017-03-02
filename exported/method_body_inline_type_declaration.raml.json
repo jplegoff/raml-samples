@@ -1,0 +1,125 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/method_body_inline_type_declaration",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/basic" : {
+      "put" : {
+        "description" : "",
+        "operationId" : "PUT /basic",
+        "summary" : "put",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "required" : false,
+          "in" : "body",
+          "name" : "body",
+          "schema" : {
+            "items" : {
+              "$ref" : "#/definitions/anonymousRepresentation2"
+            },
+            "type" : "array"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "post" : {
+        "description" : "",
+        "operationId" : "POST /basic",
+        "summary" : "post",
+        "consumes" : [ "application/json" ],
+        "parameters" : [ {
+          "required" : false,
+          "in" : "body",
+          "name" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/anonymousRepresentation"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      },
+      "patch" : {
+        "description" : "",
+        "operationId" : "PATCH /basic",
+        "summary" : "patch",
+        "parameters" : [ {
+          "required" : false,
+          "in" : "body",
+          "name" : "body",
+          "schema" : {
+            "items" : {
+              "$ref" : "#/definitions/anonymousRepresentation3"
+            },
+            "type" : "array"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "anonymousRepresentation3" : {
+      "type" : "object"
+    },
+    "anonymousRepresentation2" : {
+      "required" : [ "integerProperty", "objectProperty" ],
+      "properties" : {
+        "integerProperty" : {
+          "format" : "int64",
+          "type" : "integer"
+        },
+        "objectProperty" : {
+          "required" : [ "stringSubProperty" ],
+          "properties" : {
+            "stringSubProperty" : {
+              "example" : "inner property",
+              "type" : "string"
+            }
+          },
+          "type" : "object"
+        }
+      },
+      "type" : "object"
+    },
+    "anonymousRepresentation" : {
+      "description" : "Object body",
+      "required" : [ "integerProperty", "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "example" : "toto",
+          "type" : "string"
+        },
+        "integerProperty" : {
+          "format" : "int64",
+          "example" : 1,
+          "type" : "integer"
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "method_body_inline_type_declaration.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

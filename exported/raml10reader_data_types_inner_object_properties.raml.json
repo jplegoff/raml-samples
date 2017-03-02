@@ -1,0 +1,111 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/raml10reader_data_types_inner_object_properties",
+  "schemes" : [ "https" ],
+  "paths" : { },
+  "definitions" : {
+    "ObjectType" : {
+      "required" : [ "objectProperty" ],
+      "properties" : {
+        "objectProperty" : {
+          "required" : [ "integerSubProperty" ],
+          "properties" : {
+            "integerSubProperty" : {
+              "format" : "int64",
+              "type" : "integer"
+            }
+          },
+          "type" : "object"
+        }
+      },
+      "type" : "object"
+    },
+    "ThreeLevelsObjectType" : {
+      "required" : [ "objectProperty" ],
+      "properties" : {
+        "objectProperty" : {
+          "required" : [ "objectSubProperty", "stringSubProperty" ],
+          "properties" : {
+            "stringSubProperty" : {
+              "type" : "string"
+            },
+            "objectSubProperty" : {
+              "required" : [ "stringSubProperty" ],
+              "properties" : {
+                "stringSubProperty" : {
+                  "type" : "string"
+                }
+              },
+              "type" : "object"
+            }
+          },
+          "type" : "object"
+        }
+      },
+      "type" : "object"
+    },
+    "ImplicitObjectType" : {
+      "required" : [ "stringProperty" ],
+      "properties" : {
+        "stringProperty" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "anonymousRepresentation" : {
+      "required" : [ "integerSubProperty" ],
+      "properties" : {
+        "integerSubProperty" : {
+          "format" : "int64",
+          "type" : "integer"
+        }
+      },
+      "type" : "object"
+    },
+    "ObjectArrayProperty" : {
+      "required" : [ "objectArray" ],
+      "properties" : {
+        "objectArray" : {
+          "items" : {
+            "required" : [ "integerSubProperty" ],
+            "properties" : {
+              "integerSubProperty" : {
+                "format" : "int64",
+                "type" : "integer"
+              }
+            },
+            "type" : "object"
+          },
+          "type" : "array"
+        }
+      },
+      "type" : "object"
+    },
+    "ArrayOfArrayInTypes" : {
+      "type" : "object"
+    },
+    "ArrayOfArrayInProperties" : {
+      "required" : [ "simpleString" ],
+      "properties" : {
+        "simpleString" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "raml10reader_data_types_inner_object_properties.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

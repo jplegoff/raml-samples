@@ -1,0 +1,184 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/method_headers",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/resourceWithHeaders" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /resourceWithHeaders",
+        "summary" : "get",
+        "parameters" : [ {
+          "required" : true,
+          "in" : "header",
+          "name" : "booleanHeader",
+          "type" : "boolean"
+        }, {
+          "required" : true,
+          "in" : "header",
+          "name" : "stringHeader",
+          "type" : "string"
+        }, {
+          "format" : "double",
+          "required" : true,
+          "in" : "header",
+          "name" : "numberHeader",
+          "type" : "number"
+        }, {
+          "format" : "int64",
+          "required" : true,
+          "in" : "header",
+          "name" : "integerHeader",
+          "type" : "integer"
+        }, {
+          "format" : "date",
+          "required" : true,
+          "in" : "header",
+          "name" : "dateOnlyHeader",
+          "type" : "string"
+        }, {
+          "required" : true,
+          "in" : "header",
+          "name" : "timeOnlyHeader",
+          "type" : "string"
+        }, {
+          "format" : "date-time",
+          "required" : true,
+          "in" : "header",
+          "name" : "datetimeHeader",
+          "type" : "string"
+        }, {
+          "format" : "date-time",
+          "required" : true,
+          "in" : "header",
+          "name" : "dateTimeOnlyHeader",
+          "type" : "string"
+        }, {
+          "required" : true,
+          "in" : "header",
+          "name" : "fileHeader",
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/headerWithObject" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /headerWithObject",
+        "summary" : "get",
+        "parameters" : [ {
+          "required" : true,
+          "in" : "header",
+          "name" : "objectHeader",
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/headerWithArrayOfArray" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /headerWithArrayOfArray",
+        "summary" : "get",
+        "parameters" : [ {
+          "required" : true,
+          "items" : {
+            "type" : "string"
+          },
+          "in" : "header",
+          "name" : "arrayOfArrayHeader",
+          "type" : "array"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/headerWithFacets" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /headerWithFacets",
+        "summary" : "get",
+        "parameters" : [ {
+          "description" : "a simple header really",
+          "required" : true,
+          "in" : "header",
+          "name" : "stringHeaderWithFacets",
+          "type" : "string"
+        }, {
+          "description" : "a simple header really",
+          "format" : "int64",
+          "required" : false,
+          "in" : "header",
+          "name" : "integerHeaderWithFacets",
+          "type" : "integer"
+        }, {
+          "required" : true,
+          "in" : "header",
+          "name" : "headerWithSyntacticSugar?",
+          "type" : "string"
+        }, {
+          "description" : "Array description",
+          "required" : true,
+          "items" : {
+            "type" : "boolean"
+          },
+          "in" : "header",
+          "name" : "arrayHeaderWithFacets",
+          "type" : "array"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    },
+    "/resourceWithArrayHeaders" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /resourceWithArrayHeaders",
+        "summary" : "get",
+        "parameters" : [ {
+          "required" : true,
+          "items" : {
+            "format" : "int32",
+            "type" : "integer"
+          },
+          "in" : "header",
+          "name" : "integerArrayHeader",
+          "type" : "array"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "info" : {
+    "title" : "method_headers.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

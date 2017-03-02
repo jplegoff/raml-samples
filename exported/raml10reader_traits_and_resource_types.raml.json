@@ -1,0 +1,57 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/raml10reader_traits_and_resource_types",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/books" : {
+      "get" : {
+        "description" : "Some requests require authentication.",
+        "operationId" : "GET /books",
+        "summary" : "get",
+        "parameters" : [ {
+          "description" : "The number of pages to return, not to exceed 10",
+          "required" : true,
+          "in" : "query",
+          "name" : "numPages",
+          "type" : "string"
+        }, {
+          "description" : "Return books that have their title matching the given value",
+          "required" : true,
+          "in" : "query",
+          "name" : "title",
+          "type" : "string"
+        }, {
+          "description" : "If no values match the value given for title, use digest_all_fields instead",
+          "required" : true,
+          "in" : "query",
+          "name" : "digest_all_fields",
+          "type" : "string"
+        }, {
+          "description" : "Access Token",
+          "required" : true,
+          "in" : "header",
+          "name" : "access_token",
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          }
+        }
+      }
+    }
+  },
+  "info" : {
+    "title" : "raml10reader_traits_and_resource_types.raml",
+    "description" : "",
+    "version" : "v1"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "swagger" : "2.0",
+  "host" : "10.1.7.116:8065",
+  "basePath" : "/response_body_examples",
+  "schemes" : [ "https" ],
+  "paths" : {
+    "/example/with/value" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /example/with/value",
+        "summary" : "get",
+        "produces" : [ "application/json", "application/x-yaml" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SchemaWithoutExample"
+            }
+          }
+        }
+      }
+    },
+    "/example/no/value" : {
+      "get" : {
+        "description" : "",
+        "operationId" : "GET /example/no/value",
+        "summary" : "get",
+        "produces" : [ "application/json", "application/x-yaml", "application/xml", "text/xml" ],
+        "responses" : {
+          "200" : {
+            "description" : "Status 200",
+            "schema" : {
+              "$ref" : "#/definitions/SchemaWithoutExample"
+            }
+          },
+          "218" : {
+            "description" : "Status 218",
+            "schema" : {
+              "$ref" : "#/definitions/SchemaWithoutExample"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions" : {
+    "SchemaWithPropertyValue" : {
+      "required" : [ "value" ],
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "SchemaWithExample" : {
+      "required" : [ "name" ],
+      "properties" : {
+        "name" : {
+          "example" : "Bob",
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    },
+    "SchemaWithoutExample" : {
+      "required" : [ "name" ],
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "address" : {
+          "type" : "string"
+        }
+      },
+      "type" : "object"
+    }
+  },
+  "info" : {
+    "title" : "response_body_examples.raml",
+    "description" : "",
+    "version" : "1.0.0"
+  },
+  "x-axway" : {
+    "corsEnabled" : true,
+    "basePaths" : [ "" ],
+    "serviceType" : "rest",
+    "deprecated" : false,
+    "tags" : { }
+  }
+}
