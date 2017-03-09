@@ -173,7 +173,7 @@
           "name" : "body",
           "required" : false,
           "schema" : {
-            "type" : "long"
+            "type" : "integer"
           }
         } ],
         "responses" : {
