@@ -173,7 +173,8 @@
           "name" : "body",
           "required" : false,
           "schema" : {
-            "type" : "integer"
+            "type" : "integer",
+            "format": "int64"
           }
         } ],
         "responses" : {
