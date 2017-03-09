@@ -32,7 +32,8 @@
           "name" : "body",
           "required" : false,
           "schema" : {
-            "type" : "long"
+            "type" : "integer",
+            "format" : "int64"
           }
         } ],
         "responses" : {
@@ -71,7 +72,8 @@
           "name" : "body",
           "required" : false,
           "schema" : {
-            "type" : "long"
+            "type" : "integer",
+            "format" : "int64"
           }
         } ],
         "responses" : {
